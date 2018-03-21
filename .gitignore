@@ -1,0 +1,7 @@
+*.pro.user
+*.o
+*.log
+*.aux
+*.fdb_latemk
+*.fls
+*.synctex.gz

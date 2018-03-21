@@ -1,0 +1,98 @@
+\documentclass[14pt]{extarticle}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+
+% page margin
+\usepackage[top=2cm, bottom=2cm, left=0.5cm, right=0.5cm]{geometry}
+
+% AMS packages
+\usepackage{amsmath, array}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+
+\usepackage{mathtools}
+
+\usepackage{graphicx}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+% modifying page layout using fancyhdr
+\fancyhf{}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+\renewcommand{\subsectionmark}[1]{\markright{\thesubsection\ #1}}
+
+\rhead{\fancyplain{}{\rightmark }}
+\cfoot{\fancyplain{}{\thepage }}
+
+\usepackage{titlesec}
+\titleformat{\section}{\bfseries}{\thesection.}{1em}{}
+\titleformat{\subsection}{\normalfont\itshape\bfseries}{\thesubsection.}{0.5em}{}
+
+\newcommand{\lb}{\left(}
+\newcommand{\rb}{\right)}
+\newcommand{\lsq}{\left[}
+\newcommand{\rsq}{\right]}
+
+% макрос производной пси с параметром
+\newcommand{\psider}[1]{\psi^{(#1)}(x)}
+
+\begin{document}
+
+\section{Базовый матричный метод Нумерова}
+
+Метод Нумерова является одним из численных методов решения обыкновенных дифференциальных уравнений вида
+\begin{gather}
+	\frac{d^2 \psi(x)}{d x^2} = f(x) \psi(x) \label{2.1}
+\end{gather}
+
+Одномерное стационарное уравнение Шредингера является уравнением именно такого типа
+\begin{gather}
+	- \frac{\hbar^2}{2m} \frac{d^2}{dx^2} \psi(x) + V(x) \psi(x) = E \psi(x), \label{2.2} \\
+	\psi^{(2)}(x) = - \frac{2 m}{\hbar^2} \lsq E - V(x) \rsq \psi(x) = f(x) \psi(x), \label{2.3}
+\end{gather}
+где
+\begin{gather}
+	\psi^{(n)}(x) = \frac{d^n}{dx^n} \psi(x), \quad f(x) = -\frac{2m}{\hbar^2} \lsq E - V(x) \rsq. \label{2.3.1}
+\end{gather}
+
+Рассмотрим разложение в ряд Тейлора волновой функции $\psi(x)$ в окрестности точки $x$ при приращении $d$
+\begin{gather}
+	\psi(x \pm d) = \psi(x) \pm d \psider{1} + \frac{1}{2!} d^2 \psider{2} \pm \frac{1}{3!} d^3 \psider{3} + \frac{1}{4!} d^4 \psider{4} + \dots. \label{2.4}
+\end{gather}
+
+Сумме значений $\psi(x + d)$ и $\psi(x - d)$ будет иметь производные только четного порядка в Тейлоровском разложении, ограничимся разложением вплоть до 6го порядка
+\begin{gather}
+	\psi(x + d) + \psi(x - d) = 2 \psi(x) + d^2 \psider{2} + \frac{1}{12} d^4 \psider{4} + O(d^6). \label{2.5}
+\end{gather}
+
+Разрешим последнее соотношение относительно производной второго порядка $\psider{2}$
+\begin{gather}
+	\psider{2} = \frac{\psi(x + d) + \psi(x - d) - 2 \psi(x)}{d^2} - \frac{1}{12} d^2 \psider{4} + O(d^4). \label{2.6}
+\end{gather}
+
+Подействуем оператором дифференцирования второго порядка на уравнение \eqref{2.3} и представим вторую производную в правой части в виде конечной разности
+\begin{gather}
+	\psider{4} = \frac{d^2}{dx^2} \lsq f(x) \psi(x) \rsq = \frac{f(x + d) \psi(x + d) + f(x - d)\psi(x - d) - 2 f(x) \psi(x)}{d^2} + O(d^2) \label{2.7}
+\end{gather}
+
+Мы получили оценку до второго порядка по $d$ четвертой производной $\psider{4}$, входящей в правую часть уравнения \eqref{2.6}, но поскольку производная умножается на $d^2$, то подставив в уравнение \eqref{2.6} соотношение \eqref{2.7} мы сохраним точность до четверго порядка малости по $d$.
+\begin{gather}
+	\psider{2} = \frac{\psi(x + d) + \psi(x - d) - 2 \psi(x)}{d^2} - \frac{1}{12} \lb f(x + d) \psi(x + d) + \psi(x - d) f(x - d) - \right. \notag \\
+	\left. - 2 \psi(x) f(x) \rb + O(d^4) \label{2.7.2} 
+\end{gather}
+
+Вспомним, что вторая производная $\psider{2}$ равна $f(x)\psi(x)$,  получаем соотношение, связывающее значения функций в точках на сетке по $d$. 
+\begin{gather}
+	f_i \psi_i = \frac{\psi_{i + 1} + \psi_{i - 1} - 2 \psi_i}{d^2} - \frac{1}{12} \lb f_{i + 1} \psi_{i + 1} + f_{i - 1} \psi_{i - 1} - 2 f_i \psi_i \rb \label{2.8},
+\end{gather}
+где были введены следующие обозначения
+\begin{gather}
+	f_{i - 1} \equiv f(x - d), \quad f_i \equiv f(x), \quad f(_{i + 1} \equiv f(x + d) \label{2.8.1},\\ 
+	\psi_{i - 1} \equiv \psi(x - d), \quad \psi_i \equiv \psi(x), \quad \psi_{i + 1} \equiv \psi(x + d). \label{2.8.2}
+\end{gather}
+
+\end{document}
+
