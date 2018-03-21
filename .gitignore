@@ -2,6 +2,6 @@
 *.o
 *.log
 *.aux
-*.fdb_latemk
+*.fdb_latexmk
 *.fls
 *.synctex.gz
