@@ -16,7 +16,9 @@ public:
     void loadContent( std::vector<std::string> & content );
     void parseContent( std::vector<std::string> & content );
     void parseLine( std::string line, bool & is_assignment, std::string & variable, std::string & value, int lineNumber );
-    double string_to_double( std::string & value, size_t line );
+
+    double string_to_double( std::string const & value, size_t line );
+    int string_to_int( std::string const & value, size_t line );
 
 private:
     std::string filename;

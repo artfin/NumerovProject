@@ -6,13 +6,15 @@ HEADERS += \
     filereader.h \
     parameters.h \
     constants.h \
-    matrixnumerov.h
+    matrixnumerov.h \
+    generalizedmatrixnumerov.h
 
 SOURCES += \
     filereader.cpp \
     parameters.cpp \
     main.cpp \
-    matrixnumerov.cpp
+    matrixnumerov.cpp \
+    generalizedmatrixnumerov.cpp
 
 DISTFILES += \
     parameters.inp

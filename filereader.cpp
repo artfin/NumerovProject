@@ -44,6 +44,7 @@ void FileReader::parseContent( std::vector<std::string> & content )
             else if ( variable == "epsilon") parameters->set_epsilon( string_to_double(value, k) );
             else if ( variable == "lowerBound" ) parameters->set_lowerBound( string_to_double(value, k) );
             else if ( variable == "upperBound" ) parameters->set_upperBound( string_to_double(value, k) );
+            else if ( variable == "order" ) parameters->set_order( string_to_int(value, k) );
             else
             {
                 throw std::invalid_argument("Unknown variable: " + variable);
@@ -104,7 +105,19 @@ void FileReader::parseLine( std::string line, bool & is_assignment, std::string 
     }
 }
 
-double FileReader::string_to_double( std::string & value, size_t line )
+int FileReader::string_to_int( std::string const & value, size_t line )
+{
+    int result;
+    if ( std::sscanf( value.c_str(), "%d", &result ) != 1 )
+    {
+        std::string lineNumberString = std::to_string( line );
+        throw std::invalid_argument("Can't transform string to int in line " + lineNumberString );
+    }
+
+    return result;
+}
+
+double FileReader::string_to_double( std::string const & value, size_t line )
 {
     double result;
     if ( std::sscanf( value.c_str(), "%lg", &result ) != 1 )

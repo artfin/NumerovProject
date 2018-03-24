@@ -24,6 +24,7 @@ public:
     void set_epsilon(double epsilon) { this->epsilon = epsilon; }
     void set_upperBound(double upperBound ) { this->upperBound = upperBound; }
     void set_lowerBound(double lowerBound ) { this->lowerBound = lowerBound; }
+    void set_order( int order ) { this->order = order; }
 
     double getLowerBound( ) const { return lowerBound; }
     double getUpperBound( ) const { return upperBound; }
@@ -52,7 +53,9 @@ private:
 
     // параметры сетки
     double d; // расстояние между точками сетки
-    int N;
+    int N; // количество точек
+
+    int order; // порядок метода Нумерова
 };
 
 #endif // PARAMETERS_H

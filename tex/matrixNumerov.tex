@@ -39,6 +39,8 @@
 % макрос производной пси с параметром
 \newcommand{\psider}[1]{\psi^{(#1)}(x)}
 
+\newcommand{\bbI}{\mathbb{I}}
+
 \begin{document}
 
 \section{Базовый матричный метод Нумерова}
@@ -93,6 +95,41 @@
 	f_{i - 1} \equiv f(x - d), \quad f_i \equiv f(x), \quad f(_{i + 1} \equiv f(x + d) \label{2.8.1},\\ 
 	\psi_{i - 1} \equiv \psi(x - d), \quad \psi_i \equiv \psi(x), \quad \psi_{i + 1} \equiv \psi(x + d). \label{2.8.2}
 \end{gather}
+
+Переставляя местами слагаемые в \eqref{2.8}, получаем
+\begin{gather}
+	\frac{\psi_{i + 1} + \psi_{i - 1} - 2 \psi_i}{d^2} = \frac{1}{12} \lb f_{i + 1} \psi_{i + 1} + f_{i - 1} \psi_{i - 1} + 10 f_i \psi_i \rb. \label{2.9}
+\end{gather}
+
+Вспоминаем, что $\displaystyle f = - \frac{2m}{\hbar^2} ( E - V )$, следовательно
+\begin{gather}
+	f_{i - 1} = - \frac{2m}{\hbar^2} (E - V_{i - 1}), \quad f_i = - \frac{2m}{\hbar^2} (E - V_i), \quad f_{i + 1} = - \frac{2m}{\hbar^2}(E - V_{i - 1}). \label{2.9.2}
+\end{gather}
+
+Подставляя эти соотношения в \eqref{2.8}, имеем
+\begin{gather}
+	- \frac{\hbar^2}{2m} \frac{\psi_{i - 1} - 2 \psi_i + \psi_{i + 1}}{d^2} + \frac{V_{i - 1} \psi_{i - 1} + 10 V_i \psi_i + V_{i + 1} \psi_{i + 1}}{12} = E \frac{\psi_{i - 1} + 10 \psi_i + \psi_{i + 1}}{12}. \label{2.10}
+\end{gather}
+
+Если мы представим $\psi$ в виде вектора-столбца $(\dots, \psi_{i - 1}, \psi_i, \psi_{i + 1}, \dots)$, и определим матрицы 
+\begin{gather}
+		A = \frac{1}{d^2} \lb \bbI_{- 1} - 2 \bbI_0 + \bbI_1 \rb, \quad B = \frac{1}{12} \lb \bbI_{-1} + 10 \bbI_{0} + \bbI_{1} \rb, V = \textup{diag} (\dots, V_{i - 1}, V_i, V_{i + 1}, \dots), \label{2.10.2} 
+\end{gather}
+где $\bbI_p$ -- это нулевая матрица за исключением $p$-ой диагонали (если считать от главной), которая заполнена единицами, то уравнение \eqref{2.10} преобразуется в следующее матричное уравнение
+\begin{gather}
+	- \frac{\hbar^2}{2m} A \psi + B V \psi = E B \psi. \label{2.11}
+\end{gather}
+
+Умножая обе части \eqref{2.11} на $B^{-1}$ слева, получаем
+\begin{gather}
+	- \frac{\hbar^2}{2m} B^{-1} A \psi + V \psi = E \psi, \label{2.12}
+\end{gather}
+то есть, матричное уравнение на собственные значения матрицы $H$
+\begin{gather}
+		H \psi = E \psi, \quad H = -\frac{\hbar^2}{2m} B^{-1} A + V, \label{2.13}
+\end{gather}
+где $H$ -- матрица гамильтониана системы. Используя оценку второй производной по методу Нумерова, получаем матрицу кинетическую энергию в виде произведения обратной к тридиагональной матрице $B^{-1}$ и тридиагональной матрицы $A$: $\displaystyle T = - \frac{\hbar^2}{2m} B^{-1} A$.  
+
 
 \end{document}
 
