@@ -44,7 +44,6 @@ void FileReader::parseContent( std::vector<std::string> & content )
             else if ( variable == "epsilon") parameters->set_epsilon( string_to_double(value, k) );
             else if ( variable == "lowerBound" ) parameters->set_lowerBound( string_to_double(value, k) );
             else if ( variable == "upperBound" ) parameters->set_upperBound( string_to_double(value, k) );
-            else if ( variable == "order" ) parameters->set_order( string_to_int(value, k) );
             else
             {
                 throw std::invalid_argument("Unknown variable: " + variable);

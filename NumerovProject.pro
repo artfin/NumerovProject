@@ -7,14 +7,16 @@ HEADERS += \
     parameters.h \
     constants.h \
     matrixnumerov.h \
-    generalizedmatrixnumerov.h
+    generalizedmatrixnumerov.h \
+    matrixreader.h
 
 SOURCES += \
     filereader.cpp \
     parameters.cpp \
     main.cpp \
     matrixnumerov.cpp \
-    generalizedmatrixnumerov.cpp
+    generalizedmatrixnumerov.cpp \
+    matrixreader.cpp
 
 DISTFILES += \
     parameters.inp

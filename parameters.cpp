@@ -29,10 +29,19 @@ void Parameters::findTurningPoints()
     // генерируем точки до тех пор пока не найдем точку, в которой потенциал больше 0
     // она у нас будет в positivePoint.
     // точка с отрицательным потенциалом будет в negativePoint
-    while (potential(positivePoint) - maxEnergy < 0.0)
+    std::cout << "(looking for positivePoint)..." << std::endl;
+    for (int i = 0; potential(positivePoint) - maxEnergy < 0.0; i++ )
+    {
         positivePoint = upperDistribution(gen);
+        if ( i > 1e6 )
+            throw std::invalid_argument("Too small bounds!");
+    }
+
+    std::cout << "(found positivepoint)" << std::endl;
+    std::cout << "(looking for negativePoint)..." << std::endl;
     while (potential(negativePoint) - maxEnergy > 0.0)
         negativePoint = upperDistribution(gen);
+    std::cout << "(found negativePoint)" << std::endl;
 
     // стандартный алгоритм бисекции
     for ( ;; )

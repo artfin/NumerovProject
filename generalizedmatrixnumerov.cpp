@@ -1,7 +1,7 @@
 #include "generalizedmatrixnumerov.h"
 
-GeneralizedMatrixNumerov::GeneralizedMatrixNumerov( Parameters * parameters )
-    : parameters(parameters)
+GeneralizedMatrixNumerov::GeneralizedMatrixNumerov( Parameters * parameters, std::string const & dir )
+    : parameters(parameters), dir(dir)
 {
 
 }
@@ -29,17 +29,42 @@ void GeneralizedMatrixNumerov::allocateMatrices()
 
 void GeneralizedMatrixNumerov::fillMatrices()
 {
-    int size = parameters->get_N();
+   MatrixReader matrixReader(dir + "/a.mtx");
+   matrixReader.fillMatrix(A, parameters->get_d());
+   //std::cout << "A: " << std::endl << A << std::endl;
 
-    Eigen::MatrixXd sys;
-    sys.resize(size, size);
+   matrixReader.resetFile(dir + "/b.mtx");
+   matrixReader.fillMatrix(B, parameters->get_d());
+   //std::cout << "B: " << std::endl << B << std::endl;
 
-    for ( int i = 0; i < size; i++ )
-    {
-        for ( int j = 0; j < size; j++ )
-        {
-            sys(i, j) = std::pow(i * parameters->get_d(), 2 * (j + 1));
-        }
-    }
+   double x0 = - parameters->get_d() * (parameters->get_N() - 1) / 2.0;
+   for ( int i = 0; i < V.rows(); i++ )
+   {
+       double x = x0 + parameters->get_d() * i;
+       V(i, i) = parameters->potential(x);
+   }
+
+   H = - B.inverse() * A / 2.0 + V;
+}
+
+Eigen::VectorXd GeneralizedMatrixNumerov::diagonalizeHamiltonian()
+{
+    Eigen::SelfAdjointEigenSolver< Eigen::MatrixXd > eigensolver( H );
+
+    if ( eigensolver.info() != Eigen::Success )
+        abort();
+
+    std::cout << "Number \t Eigenvalue" << std::endl;
+    std::cout << "-----------------------------------" << std::endl;
+    std::cout << std::fixed << std::setprecision(10);
+    for ( int i = 0; i < 10; i++ )
+        std::cout << i << " " << eigensolver.eigenvalues()[i] << std::endl;
+
+    Eigen::VectorXd eigenvalues;
+    eigenvalues.resize( H.rows() );
+    for ( int i = 0; i < H.rows(); i++ )
+        eigenvalues(i) = eigensolver.eigenvalues()[i];
+
+    return eigenvalues;
 }
 

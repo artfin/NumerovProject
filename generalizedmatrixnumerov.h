@@ -4,17 +4,21 @@
 #include "parameters.h"
 #include <Eigen/Dense>
 #include <cmath>
+#include <string>
+#include "matrixreader.h"
 
 class GeneralizedMatrixNumerov
 {
 public:
-    GeneralizedMatrixNumerov( Parameters * parameters );
+    GeneralizedMatrixNumerov( Parameters * parameters, std::string const & dir );
 
-    void allocateMatrices();
-    void fillMatrices();
+    void allocateMatrices( );
+    void fillMatrices( );
+    Eigen::VectorXd diagonalizeHamiltonian( );
 
 private:
     Parameters * parameters;
+    std::string dir;
 
     Eigen::MatrixXd A;
     Eigen::MatrixXd B;
