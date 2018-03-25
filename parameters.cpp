@@ -36,11 +36,15 @@ void Parameters::findTurningPoints()
         if ( i > 1e6 )
             throw std::invalid_argument("Too small bounds!");
     }
-
     std::cout << "(found positivepoint)" << std::endl;
+
     std::cout << "(looking for negativePoint)..." << std::endl;
-    while (potential(negativePoint) - maxEnergy > 0.0)
+    for (int i = 0; potential(negativePoint) - maxEnergy > 0.0; i++ )
+    {
         negativePoint = upperDistribution(gen);
+        if ( i > 1e6 )
+            throw std::invalid_argument("Too small bounds!");
+    }
     std::cout << "(found negativePoint)" << std::endl;
 
     // стандартный алгоритм бисекции

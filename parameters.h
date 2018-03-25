@@ -33,6 +33,7 @@ public:
 
     double get_d() const { return d; }
     int get_N() const { return N; }
+    double get_mass() const { return mass; }
 
     std::function<double(double)> potential;
 

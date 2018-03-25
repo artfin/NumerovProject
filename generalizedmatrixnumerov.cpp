@@ -44,7 +44,7 @@ void GeneralizedMatrixNumerov::fillMatrices()
        V(i, i) = parameters->potential(x);
    }
 
-   H = - B.inverse() * A / 2.0 + V;
+   H = - B.inverse() * A / (2.0 * parameters->get_mass()) + V;
 }
 
 Eigen::VectorXd GeneralizedMatrixNumerov::diagonalizeHamiltonian()

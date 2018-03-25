@@ -1,6 +1,5 @@
 % параметры для расчета энергии по матричному методу Нумерова
-maxEnergy = 10.0
-lowerBound = -20.0
-upperBound = 20.0
+maxEnergy = 0.01
+lowerBound = 1e-5
+upperBound = 10.0
 epsilon = 1e-5
-mass = 1.0

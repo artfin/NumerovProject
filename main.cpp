@@ -12,9 +12,22 @@
 #include <limits.h>
 #include <unistd.h>
 
-double potential( double x )
+double testPotential( double x )
 {
     return 0.5 * x * x;
+}
+
+namespace morse
+{
+    const double De = 0.1744;
+    const double omega = 1.02764;
+    const double re = 1.40201;
+    const double mu = 918.6446;
+
+    double potential( const double r )
+    {
+        return De * pow(1 - std::exp(-omega * pow(r - re, 2)), 2);
+    }
 }
 
 std::string getApplicationBinPath()
@@ -31,22 +44,17 @@ int main()
 
     parameters.show();
 
-    parameters.setPotential( potential );
+    /*
+    std::ofstream outFile("h2_morsePotential.txt");
+    for ( double x0 = 0.1; x0 < 15.0; x0 += 0.1 )
+        outFile << x0 << " " << morse::potential(x0) << std::endl;
+    outFile.close();
+    */
+
+    parameters.set_mass( morse::mu );
+    parameters.setPotential( morse::potential );
     parameters.findTurningPoints();
     parameters.setGridParameters();
-
-    /*
-    MatrixNumerov matrixNumerov( &parameters );
-
-    matrixNumerov.allocateMatrices();
-    matrixNumerov.fillBasicNumerovMatrices();
-
-    std::clock_t start = std::clock();
-    Eigen::VectorXd eigenvalues = matrixNumerov.diagonalizeHamiltonian();
-    std::cout << "Diagonalization done in: " << (double) (std::clock() - start) / CLOCKS_PER_SEC << " s" << std::endl;
-
-    matrixNumerov.calculatePartitionFunction( eigenvalues );
-    */
 
     std::string dir = "../14order";
     std::cout << std::endl << "--- Using " << dir << " Numerov Method --- " << std::endl << std::endl;
