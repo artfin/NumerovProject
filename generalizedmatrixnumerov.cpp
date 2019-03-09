@@ -3,68 +3,108 @@
 GeneralizedMatrixNumerov::GeneralizedMatrixNumerov( Parameters * parameters, std::string const & dir )
     : parameters(parameters), dir(dir)
 {
-
 }
 
 void GeneralizedMatrixNumerov::allocateMatrices()
 {
     int size = parameters->get_N();
 
-    A.resize(size, size);
-    B.resize(size, size);
-    V.resize(size, size);
-    H.resize(size, size);
-
-    for ( int i = 0; i < size; i++ )
-    {
-        for ( int j = 0; j < size; j++ )
-        {
-            A(i, j) = 0.0;
-            B(i, j) = 0.0;
-            V(i, j) = 0.0;
-            H(i, j) = 0.0;
-        }
-    }
+    A = Eigen::MatrixXd::Zero( size, size );
+    B = Eigen::MatrixXd::Zero( size, size );
+    V = Eigen::MatrixXd::Zero( size, size );
+    H = Eigen::MatrixXd::Zero( size, size );
 }
 
 void GeneralizedMatrixNumerov::fillMatrices()
 {
-   MatrixReader matrixReader(dir + "/a.mtx");
-   matrixReader.fillMatrix(A, parameters->get_d());
-   //std::cout << "A: " << std::endl << A << std::endl;
+    std::cout << " STEP SIZE OF GRID: " << parameters->get_d() << std::endl;
+    std::cout << " SIZE OF MATRICES: " << parameters->get_N() << std::endl;
 
-   matrixReader.resetFile(dir + "/b.mtx");
-   matrixReader.fillMatrix(B, parameters->get_d());
-   //std::cout << "B: " << std::endl << B << std::endl;
+    MatrixReader matrixReader(dir + "/a.mtx");
+    matrixReader.fillMatrix(A, parameters->get_d());
 
-   double x0 = - parameters->get_d() * (parameters->get_N() - 1) / 2.0;
-   for ( int i = 0; i < V.rows(); i++ )
-   {
-       double x = x0 + parameters->get_d() * i;
-       V(i, i) = parameters->potential(x);
-   }
+#ifdef DEBUG_SHOW_MATRIX_STRUCTURE
+    std::cout << " STRUCTURE OF MATRICES USING IN THE CURRENT ORDER OF THE METHOD" << std::endl;
+    std::cout << "----------------------------------------------------------------" << std::endl;
+    std::cout << " MATRIX A: " << std::endl;
+    std::cout << " FACTOR: " << matrixReader.get_factor() << std::endl;
+    std::cout << " POWER OF D BEFORE MATRIX: " << matrixReader.get_d_power() << std::endl;
 
-   H = - B.inverse() * A / (2.0 * parameters->get_mass()) + V;
+    std::cout << " DIAGONALS ARE NUMBERED FROM THE MAIN DIAGONAL" << std::endl;
+    for ( std::pair<int, double> const& p : matrixReader.get_mtxFmt() )
+        std::cout << " NUMBER OF DIAGONAL: " << p.first << "; FILLED WITH " << p.second << std::endl;
+    std::cout << std::endl;
+#endif
+
+    matrixReader.resetFile(dir + "/b.mtx");
+    matrixReader.fillMatrix(B, parameters->get_d());
+#ifdef DEBUG_SHOW_MATRIX_STRUCTURE
+    std::cout << " MATRIX B: " << std::endl;
+    std::cout << " FACTOR: " << matrixReader.get_factor() << std::endl;
+    std::cout << " POWER OF D BEFORE MATRIX: " << matrixReader.get_d_power() << std::endl;
+
+    std::cout << " DIAGONALS ARE NUMBERED FROM THE MAIN DIAGONAL" << std::endl;
+    for ( std::pair<int, double> const& p : matrixReader.get_mtxFmt() )
+        std::cout << " NUMBER OF DIAGONAL: " << p.first << "; FILLED WITH " << p.second << std::endl;
+    std::cout << std::endl;
+#endif
+
+    double d = parameters->get_d();
+
+    double x = 0.0;
+    if ( parameters->ENERGY_BASED_GRID ) {
+        x = parameters->get_leftTurningPoint() - 2.0 * parameters->get_lambda();
+    } else if ( parameters->FIXED_GRID ) {
+        x = parameters->get_leftTurningPoint();
+    }
+
+#ifdef DEBUG_SHOW_MATRIX_STRUCTURE
+    std::cout << " STARTING X VALUE TO FILL POTENTIAL MATRIX: " << x << std::endl;
+#endif
+
+    for ( int i = 0; i < V.rows(); i++ )
+    {
+        V(i, i) = parameters->call_potential(x);
+        x += d;
+    }
+
+#ifdef DEBUG_SHOW_MATRIX_STRUCTURE
+    std::cout << " ENDING X VALUE TO FILL POTENTIAL MATRIX: " << x << std::endl;
+#endif
+
+    // hamiltonian matrix
+    H = - B.inverse() * A / (2.0 * parameters->get_mu()) + V;
 }
 
-Eigen::VectorXd GeneralizedMatrixNumerov::diagonalizeHamiltonian()
+void GeneralizedMatrixNumerov::diagonalize( Eigen::VectorXd & eigvals, Eigen::MatrixXd & eigvecs )
 {
-    Eigen::SelfAdjointEigenSolver< Eigen::MatrixXd > eigensolver( H );
+    Eigen::SelfAdjointEigenSolver<Eigen::MatrixXd> es;
+    es.compute( H );
 
-    if ( eigensolver.info() != Eigen::Success )
+    if ( es.info() != Eigen::Success )
         abort();
 
-    std::cout << "Number \t Eigenvalue" << std::endl;
-    std::cout << "-----------------------------------" << std::endl;
-    std::cout << std::fixed << std::setprecision(10);
-    for ( int i = 0; i < 10; i++ )
-        std::cout << i << " " << eigensolver.eigenvalues()[i] << std::endl;
-
-    Eigen::VectorXd eigenvalues;
-    eigenvalues.resize( H.rows() );
-    for ( int i = 0; i < H.rows(); i++ )
-        eigenvalues(i) = eigensolver.eigenvalues()[i];
-
-    return eigenvalues;
+    eigvals = es.eigenvalues();
+    eigvecs = es.eigenvectors();
 }
 
+void GeneralizedMatrixNumerov::diagonalize_arnoldi( const int k, Eigen::VectorXd & eigvals )
+{
+    // Construct matrix operation object using the wrapper class DenseSymMatProd
+    Spectra::DenseSymMatProd<double> op( H );
+
+    // Construct eigen solver object, requesting the largest three eigenvalues
+    int ncv = 2 * k + 2; // some optimization parameter needed for Arnoldi diagonalization;
+    // it is advised to be > 2*requested number of eigenvalues
+    Spectra::SymEigsSolver< double, Spectra::SMALLEST_ALGE, Spectra::DenseSymMatProd<double> > solver( &op, k, ncv );
+
+    // Initialize and compute
+    solver.init();
+    int nconv = solver.compute();
+
+    // Retrieve results
+    if( solver.info() == Spectra::SUCCESSFUL )
+        eigvals = solver.eigenvalues();
+    else
+        abort();
+}

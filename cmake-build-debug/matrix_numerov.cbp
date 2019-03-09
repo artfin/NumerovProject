@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="matrix_numerov"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j6 -f &quot;/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j6 -f &quot;/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j6 -f &quot;/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j6 -f &quot;/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j6 -f &quot;/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j6 -f &quot;/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j6 -f &quot;/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j6 -f &quot;/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="matrix_numerov">
+				<Option output="/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug/matrix_numerov" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/include/eigen3"/>
+					<Add directory="/home/artfin/Desktop/repos/spectra-0.7.0/include"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j6 -f &quot;/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 matrix_numerov"/>
+					<CompileFile command="/usr/bin/make -j6 -f &quot;/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j6 -f &quot;/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j6 -f &quot;/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="matrix_numerov/fast">
+				<Option output="/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug/matrix_numerov" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/include/eigen3"/>
+					<Add directory="/home/artfin/Desktop/repos/spectra-0.7.0/include"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j6 -f &quot;/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 matrix_numerov/fast"/>
+					<CompileFile command="/usr/bin/make -j6 -f &quot;/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j6 -f &quot;/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j6 -f &quot;/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j6 -f &quot;/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j6 -f &quot;/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j6 -f &quot;/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j6 -f &quot;/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/artfin/Desktop/repos/NumerovProject/constants.h">
+			<Option target="matrix_numerov"/>
+		</Unit>
+		<Unit filename="/home/artfin/Desktop/repos/NumerovProject/eigenvalue.cpp">
+			<Option target="matrix_numerov"/>
+		</Unit>
+		<Unit filename="/home/artfin/Desktop/repos/NumerovProject/eigenvalue.h">
+			<Option target="matrix_numerov"/>
+		</Unit>
+		<Unit filename="/home/artfin/Desktop/repos/NumerovProject/filereader.cpp">
+			<Option target="matrix_numerov"/>
+		</Unit>
+		<Unit filename="/home/artfin/Desktop/repos/NumerovProject/filereader.h">
+			<Option target="matrix_numerov"/>
+		</Unit>
+		<Unit filename="/home/artfin/Desktop/repos/NumerovProject/generalizedmatrixnumerov.cpp">
+			<Option target="matrix_numerov"/>
+		</Unit>
+		<Unit filename="/home/artfin/Desktop/repos/NumerovProject/generalizedmatrixnumerov.h">
+			<Option target="matrix_numerov"/>
+		</Unit>
+		<Unit filename="/home/artfin/Desktop/repos/NumerovProject/main.cpp">
+			<Option target="matrix_numerov"/>
+		</Unit>
+		<Unit filename="/home/artfin/Desktop/repos/NumerovProject/matrixnumerov.cpp">
+			<Option target="matrix_numerov"/>
+		</Unit>
+		<Unit filename="/home/artfin/Desktop/repos/NumerovProject/matrixnumerov.h">
+			<Option target="matrix_numerov"/>
+		</Unit>
+		<Unit filename="/home/artfin/Desktop/repos/NumerovProject/matrixreader.cpp">
+			<Option target="matrix_numerov"/>
+		</Unit>
+		<Unit filename="/home/artfin/Desktop/repos/NumerovProject/matrixreader.h">
+			<Option target="matrix_numerov"/>
+		</Unit>
+		<Unit filename="/home/artfin/Desktop/repos/NumerovProject/parameters.cpp">
+			<Option target="matrix_numerov"/>
+		</Unit>
+		<Unit filename="/home/artfin/Desktop/repos/NumerovProject/parameters.h">
+			<Option target="matrix_numerov"/>
+		</Unit>
+		<Unit filename="/home/artfin/Desktop/repos/NumerovProject/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

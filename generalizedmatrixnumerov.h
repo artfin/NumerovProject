@@ -1,11 +1,16 @@
-#ifndef GENERALIZEDMATRIXNUMEROV_H
-#define GENERALIZEDMATRIXNUMEROV_H
+#pragma once
 
 #include "parameters.h"
 #include <Eigen/Dense>
 #include <cmath>
 #include <string>
 #include "matrixreader.h"
+
+#include <Eigen/Core>
+#include <Spectra/SymEigsSolver.h>
+
+#define DEBUG_SHOW_MATRIX_STRUCTURE
+#undef DEBUG_SHOW_MATRIX_STRUCTURE
 
 class GeneralizedMatrixNumerov
 {
@@ -14,7 +19,9 @@ public:
 
     void allocateMatrices( );
     void fillMatrices( );
-    Eigen::VectorXd diagonalizeHamiltonian( );
+    void diagonalize( Eigen::VectorXd & eigvals, Eigen::MatrixXd & eigvecs );
+    void diagonalize_arnoldi( int n, Eigen::VectorXd & eigvals );
+    int get_N() const { return parameters->get_N(); }
 
 private:
     Parameters * parameters;
@@ -26,4 +33,3 @@ private:
     Eigen::MatrixXd H;
 };
 
-#endif // GENERALIZEDMATRIXNUMEROV_H

@@ -1,0 +1,3 @@
+/home/artfin/Desktop/repos/NumerovProject/spectra_example/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/artfin/Desktop/repos/NumerovProject/spectra_example/cmake-build-debug/CMakeFiles/spectra_example.dir
+/home/artfin/Desktop/repos/NumerovProject/spectra_example/cmake-build-debug/CMakeFiles/edit_cache.dir

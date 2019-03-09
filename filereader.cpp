@@ -3,8 +3,6 @@
 FileReader::FileReader(std::string filename, Parameters * parameters)
     : filename(filename), parameters(parameters)
 {
-    std::cout << "FileReader constructor" << std::endl;
-
     std::vector<std::string> content;
     loadContent( content );
     parseContent( content );
@@ -39,11 +37,43 @@ void FileReader::parseContent( std::vector<std::string> & content )
         if ( is_assignment )
         {
             if ( variable == "d") parameters->set_d( string_to_double(value, k) );
-            else if ( variable == "mass" ) parameters->set_mass( string_to_double(value, k) );
-            else if ( variable == "maxEnergy") parameters->set_maxEnergy( string_to_double(value, k) );
-            else if ( variable == "epsilon") parameters->set_epsilon( string_to_double(value, k) );
-            else if ( variable == "lowerBound" ) parameters->set_lowerBound( string_to_double(value, k) );
-            else if ( variable == "upperBound" ) parameters->set_upperBound( string_to_double(value, k) );
+            else if ( variable == "mass" ) parameters->set_mu( string_to_double(value, k) );
+            else if ( variable == "maxEnergy") {
+                parameters->set_maxEnergy( string_to_double(value, k) );
+#ifdef DEBUG_SET_PARAMETERS
+                std::cout << "setting maxEnergy" << std::endl;
+#endif
+            }
+            else if ( variable == "epsilon") {
+                parameters->set_epsilon( string_to_double(value, k) );
+#ifdef DEBUG_SET_PARAMETERS
+                std::cout << "setting epsilon" << std::endl;
+#endif
+            }
+            else if ( variable == "leftPointLeftBound" ) {
+                parameters->set_leftPointleftBound(string_to_double(value, k));
+#ifdef DEBUG_SET_PARAMETERS
+                std::cout << "setting leftPointLeftBound" << std::endl;
+#endif
+            }
+            else if ( variable == "leftPointRightBound" ) {
+                parameters->set_leftPointrightBound(string_to_double(value, k));
+#ifdef DEBUG_SET_PARAMETERS
+                std::cout << "setting leftPointRightBound" << std::endl;
+#endif
+            }
+            else if ( variable == "rightPointLeftBound" ) {
+                parameters->set_rightPointleftBound(string_to_double(value, k));
+#ifdef DEBUG_SET_PARAMETERS
+                std::cout << "setting rightPointLeftBound" << std::endl;
+#endif
+            }
+            else if ( variable == "rightPointRightBound" ) {
+                parameters->set_rightPointrightBound(string_to_double(value, k));
+#ifdef DEBUG_SET_PARAMETERS
+                std::cout << "setting rightPointRightBound" << std::endl;
+#endif
+            }
             else
             {
                 throw std::invalid_argument("Unknown variable: " + variable);
@@ -55,7 +85,7 @@ void FileReader::parseContent( std::vector<std::string> & content )
     }
 }
 
-void FileReader::parseLine( std::string line, bool & is_assignment, std::string & variable, std::string & value, int lineNumber )
+void FileReader::parseLine( std::string line, bool & is_assignment, std::string & variable, std::string & value, size_t lineNumber )
 {
     is_assignment = false;
 
@@ -87,7 +117,6 @@ void FileReader::parseLine( std::string line, bool & is_assignment, std::string 
         size_t variable_start = lhs.find_first_not_of(space_symbols);
         size_t variable_end = lhs.find_last_not_of(space_symbols);
         variable = lhs.substr(variable_start, variable_end - variable_start + 1);
-        //std::cout << "variable = " << variable << std::endl;
 
         // отрезаем правую часть
         std::string rhs = line.substr(pos + 1, line.length());

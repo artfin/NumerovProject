@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/artfin/Desktop/repos/NumerovProject/romberg/main.cpp
+iostream
+-
+functional
+-
+cmath
+-
+vector
+-
+iomanip
+-
+

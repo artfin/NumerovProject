@@ -56,7 +56,7 @@ void MatrixNumerov::fillBasicNumerovMatrices()
     for ( int i = 0; i < size; i++ )
     {
         double x = x0 + parameters->get_d() * i;
-        V(i, i) = parameters->potential(x);
+        V(i, i) = parameters->call_potential(x);
     }
 
     H = - B.inverse() * A / 2.0 + V;

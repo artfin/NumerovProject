@@ -122,18 +122,10 @@ int MatrixReader::string_to_int( std::string const & value, size_t line )
     return result;
 }
 
-void MatrixReader::showMatrixFormat()
-{
-    std::cout << "factor: " << factor << std::endl;
-    std::cout << "d_power: " << d_power << std::endl;
-    for ( size_t k = 0; k < mtxFmt.size(); k++ )
-        std::cout << "diagonal: " << mtxFmt[k].first << "; value: " << mtxFmt[k].second << std::endl;
-}
-
 void MatrixReader::fillMatrix(Eigen::MatrixXd & m, double d)
 {
     int size = m.rows();
-    std::cout << "(MatrixReader) factor: " << factor << "; d_power: " << d_power << std::endl;
+    //std::cout << "(MatrixReader) factor: " << factor << "; d_power: " << d_power << std::endl;
 
     for ( size_t k = 0; k < mtxFmt.size(); k++ )
     {

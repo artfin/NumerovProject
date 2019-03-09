@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/artfin/Desktop/repos/NumerovProject/bfgs_minimizer/main.cpp
+iostream
+-
+gsl/gsl_roots.h
+-
+gsl/gsl_math.h
+-
+gsl/gsl_errno.h
+-
+functional
+-
+iomanip
+-
+cmath
+-
+

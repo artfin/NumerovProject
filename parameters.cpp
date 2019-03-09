@@ -1,118 +1,106 @@
 #include "parameters.h"
 
-Parameters::Parameters()
-{
-}
-
-Parameters::Parameters( double maxEnergy ) : maxEnergy(maxEnergy)
-{
-}
-
-void Parameters::setPotential( std::function<double(double)> potential )
+void Parameters::setPotential( std::function<double(const double)> potential )
 {
     this->potential = potential;
 }
 
+double Parameters::brent( std::function<double(double)> f, double xb1, double xb2, const double eps )
+{
+    int status;
+    int iter = 0, max_iter = 100;
+
+    const gsl_root_fsolver_type *T;
+    T = gsl_root_fsolver_brent;
+
+    gsl_root_fsolver *s;
+    s = gsl_root_fsolver_alloc(T);
+
+    gsl_function F =
+            {
+                    [](double d, void *vf) -> double {
+                        auto &func = *static_cast<std::function<double(double)> *>(vf);
+                        return func(d);
+                    },
+                    &f
+            };
+
+    gsl_root_fsolver_set(s, &F, xb1, xb2);
+
+    double x_lo, x_hi, r = 0;
+
+    do {
+        iter++;
+
+        gsl_root_fsolver_iterate(s);
+        r = gsl_root_fsolver_root(s);
+
+        x_lo = gsl_root_fsolver_x_lower(s);
+        x_hi = gsl_root_fsolver_x_upper(s);
+        status = gsl_root_test_interval(x_lo, x_hi, eps, eps);
+
+        /*
+        if ( status == GSL_SUCCESS ) {
+            printf( "Converged:\n");
+        }
+
+        printf( "%5d [%.12f, %.12f] %.12f %.12f\n",
+                iter, x_lo, x_hi, r, x_hi - x_lo );
+        */
+
+    } while (status == GSL_CONTINUE && iter < max_iter);
+
+    gsl_root_fsolver_free(s);
+
+    return r;
+}
+
 void Parameters::findTurningPoints()
 {
-    // мерсенновский генератор псевдопростых чисел
-    std::random_device rd;
-    std::mt19937 gen(rd());
-    // создаем равномерные генераторы в областях [LOWERBOUND, 0.0] и [0.0, UPPERBOUND]
-    std::uniform_real_distribution<double> lowerDistribution(lowerBound, 0.0);
-    std::uniform_real_distribution<double> upperDistribution(0.0, upperBound);
+    auto f = [=](double x) { return potential(x) - maxEnergy; };
 
-    // найдем точки слева и справа от корня в правой половине потенциала (UPPERBOUND)
-    double positivePoint = upperDistribution(gen);
-    double negativePoint = upperDistribution(gen);
+#ifdef DEBUG_FIND_TURNING_POINTS
+    std::cout << std::setprecision(12);
+    std::cout << std::endl;
+    std::cout << " CALLING BRENT TO FIND TURNING POINTS " << std::endl;
+    std::cout << " INTERVAL FOR FINDING LEFT TURNING POINT: (" << leftPointLeftBound << ", " << rightPointLeftBound << ")" << std::endl;
+#endif
 
-    // генерируем точки до тех пор пока не найдем точку, в которой потенциал больше 0
-    // она у нас будет в positivePoint.
-    // точка с отрицательным потенциалом будет в negativePoint
-    std::cout << "(looking for positivePoint)..." << std::endl;
-    for (int i = 0; potential(positivePoint) - maxEnergy < 0.0; i++ )
-    {
-        positivePoint = upperDistribution(gen);
-        if ( i > 1e6 )
-            throw std::invalid_argument("Too small bounds!");
-    }
-    std::cout << "(found positivepoint)" << std::endl;
+    leftTurningPoint = brent(f, leftPointLeftBound, leftPointRightBound, epsilon);
 
-    std::cout << "(looking for negativePoint)..." << std::endl;
-    for (int i = 0; potential(negativePoint) - maxEnergy > 0.0; i++ )
-    {
-        negativePoint = upperDistribution(gen);
-        if ( i > 1e6 )
-            throw std::invalid_argument("Too small bounds!");
-    }
-    std::cout << "(found negativePoint)" << std::endl;
+#ifdef DEBUG_FIND_TURNING_POINTS
+    std::cout << " LEFT TURNING POINT FOUND: " << leftTurningPoint << std::endl;
+#endif
 
-    // стандартный алгоритм бисекции
-    for ( ;; )
-    {
-        double midPoint = (positivePoint + negativePoint) / 2.0;
-        double potentialMidPoint = potential(midPoint);
+#ifdef DEBUG_FIND_TURNING_POINTS
+    std::cout << " INTERVAL FOR FINDING RIGHT TURNING POINT: (" << leftPointRightBound << ", " << rightPointRightBound << ")" << std::endl;
+#endif
 
-        if ( fabs(potentialMidPoint - maxEnergy) < epsilon )
-        {
-            //std::cout << std::fixed << std::setprecision(8);
-            //std::cout << "abs(...) = " << fabs(potentialMidPoint - maxEnergy) << std::endl;
-            rightTurningPoint = midPoint;
-            break;
-        }
+    rightTurningPoint = brent(f, rightPointLeftBound, rightPointRightBound, epsilon);
 
-        if ( (potentialMidPoint - maxEnergy) >= 0.0 )
-            positivePoint = midPoint;
-        else
-            negativePoint = midPoint;
-    }
-
-    std::cout << "rightTurningPoint: " << rightTurningPoint << std::endl;
-
-    positivePoint = lowerDistribution(gen);
-    negativePoint = lowerDistribution(gen);
-
-    while ( potential(positivePoint) - maxEnergy < 0.0 )
-        positivePoint = lowerDistribution(gen);
-    while( potential(negativePoint) - maxEnergy > 0.0 )
-        negativePoint = lowerDistribution(gen);
-
-    for ( ;; )
-    {
-        double midPoint = 0.5 * (negativePoint + positivePoint);
-        double potentialMidPoint = potential(midPoint);
-
-        if ( fabs(potentialMidPoint - maxEnergy) < epsilon )
-        {
-            leftTurningPoint = midPoint;
-            break;
-        }
-
-        if ( (potentialMidPoint - maxEnergy) >= 0.0 )
-            positivePoint = midPoint;
-        else
-            negativePoint = midPoint;
-    }
-
-    std::cout << "leftTurningPoint = " << leftTurningPoint << std::endl;
+#ifdef DEBUG_FIND_TURNING_POINTS
+    std::cout << " RIGHT TURNING POINT FOUND: " << rightTurningPoint << std::endl;
+    std::cout << std::endl;
+#endif
 }
 
 void Parameters::setGridParameters()
 {
-    d = 1.0 / sqrt(2 * mass * maxEnergy);
-    N = std::round(2 * (rightTurningPoint / d + 4 * M_PI));
+    ENERGY_BASED_GRID = true;
 
-    std::cout << "d = " << d << std::endl;
-    std::cout << "N = " << N << std::endl;
+    lambda = 2.0 * M_PI / std::sqrt(2.0 * mu * maxEnergy); // minimum De'Broglie length
+    d =  lambda / (2.0 * M_PI); // hbar * hbar / sqrt(2 * mu * E_max)
+    N = static_cast<int>( (rightTurningPoint - leftTurningPoint) / d + 8.0 * M_PI );
+
+    // recalculating grid step after we set the number of point in grid
+    d = (rightTurningPoint - leftTurningPoint + 4.0 * lambda) / (N - 1);
 }
 
-void Parameters::show()
+void Parameters::setGridParameters( const double leftTurningPoint, const double rightTurningPoint, const double d )
 {
-    std::cout << "########################" << std::endl;
-    std::cout << "parameters.maxEnergy = " << maxEnergy << std::endl;
-    std::cout << "parameters.epsilon = " << epsilon << std::endl;
-    std::cout << "parameters.lowerBound = " << lowerBound << std::endl;
-    std::cout << "parameters.upperBound = " << upperBound << std::endl;
-    std::cout << "########################" << std::endl;
+    FIXED_GRID = true;
+    this->leftTurningPoint = leftTurningPoint;
+    this->rightTurningPoint = rightTurningPoint;
+    this->d = d;
+    N = static_cast<int>( (rightTurningPoint - leftTurningPoint) / d  );
 }
-

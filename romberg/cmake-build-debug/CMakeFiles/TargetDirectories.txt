@@ -1,0 +1,3 @@
+/home/artfin/Desktop/repos/NumerovProject/romberg/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/artfin/Desktop/repos/NumerovProject/romberg/cmake-build-debug/CMakeFiles/romberg.dir
+/home/artfin/Desktop/repos/NumerovProject/romberg/cmake-build-debug/CMakeFiles/edit_cache.dir

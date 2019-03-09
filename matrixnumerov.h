@@ -1,5 +1,4 @@
-#ifndef MATRIXNUMEROV_H
-#define MATRIXNUMEROV_H
+#pragma once
 
 #include "parameters.h"
 #include <iomanip>
@@ -27,4 +26,3 @@ private:
     Eigen::MatrixXd H;
 };
 
-#endif // MATRIXNUMEROV_H

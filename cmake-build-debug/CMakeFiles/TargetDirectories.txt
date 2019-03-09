@@ -1,0 +1,3 @@
+/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug/CMakeFiles/matrix_numerov.dir
+/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug/CMakeFiles/edit_cache.dir
