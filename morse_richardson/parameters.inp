@@ -1,0 +1,10 @@
+% Danila morse potential parameters
+
+% Harmonic oscillator test parameters in case of finding appropriate turning points
+% maxEnergy = 50.0
+% leftPointLeftBound = -15.0
+% leftPointRightBound = 0.0
+% rightPointLeftBound = 0.0
+% rightPointRightBound = 15.0
+
+epsilon = 1e-5

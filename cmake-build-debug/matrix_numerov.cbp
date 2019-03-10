@@ -88,46 +88,37 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/artfin/Desktop/repos/NumerovProject/constants.h">
+		<Unit filename="/home/artfin/Desktop/repos/NumerovProject/lib/eigenvalue.cpp">
 			<Option target="matrix_numerov"/>
 		</Unit>
-		<Unit filename="/home/artfin/Desktop/repos/NumerovProject/eigenvalue.cpp">
+		<Unit filename="/home/artfin/Desktop/repos/NumerovProject/lib/eigenvalue.h">
 			<Option target="matrix_numerov"/>
 		</Unit>
-		<Unit filename="/home/artfin/Desktop/repos/NumerovProject/eigenvalue.h">
+		<Unit filename="/home/artfin/Desktop/repos/NumerovProject/lib/filereader.cpp">
 			<Option target="matrix_numerov"/>
 		</Unit>
-		<Unit filename="/home/artfin/Desktop/repos/NumerovProject/filereader.cpp">
+		<Unit filename="/home/artfin/Desktop/repos/NumerovProject/lib/filereader.h">
 			<Option target="matrix_numerov"/>
 		</Unit>
-		<Unit filename="/home/artfin/Desktop/repos/NumerovProject/filereader.h">
+		<Unit filename="/home/artfin/Desktop/repos/NumerovProject/lib/generalizedmatrixnumerov.cpp">
 			<Option target="matrix_numerov"/>
 		</Unit>
-		<Unit filename="/home/artfin/Desktop/repos/NumerovProject/generalizedmatrixnumerov.cpp">
+		<Unit filename="/home/artfin/Desktop/repos/NumerovProject/lib/generalizedmatrixnumerov.h">
 			<Option target="matrix_numerov"/>
 		</Unit>
-		<Unit filename="/home/artfin/Desktop/repos/NumerovProject/generalizedmatrixnumerov.h">
+		<Unit filename="/home/artfin/Desktop/repos/NumerovProject/lib/matrixreader.cpp">
+			<Option target="matrix_numerov"/>
+		</Unit>
+		<Unit filename="/home/artfin/Desktop/repos/NumerovProject/lib/matrixreader.h">
+			<Option target="matrix_numerov"/>
+		</Unit>
+		<Unit filename="/home/artfin/Desktop/repos/NumerovProject/lib/parameters.cpp">
+			<Option target="matrix_numerov"/>
+		</Unit>
+		<Unit filename="/home/artfin/Desktop/repos/NumerovProject/lib/parameters.h">
 			<Option target="matrix_numerov"/>
 		</Unit>
 		<Unit filename="/home/artfin/Desktop/repos/NumerovProject/main.cpp">
-			<Option target="matrix_numerov"/>
-		</Unit>
-		<Unit filename="/home/artfin/Desktop/repos/NumerovProject/matrixnumerov.cpp">
-			<Option target="matrix_numerov"/>
-		</Unit>
-		<Unit filename="/home/artfin/Desktop/repos/NumerovProject/matrixnumerov.h">
-			<Option target="matrix_numerov"/>
-		</Unit>
-		<Unit filename="/home/artfin/Desktop/repos/NumerovProject/matrixreader.cpp">
-			<Option target="matrix_numerov"/>
-		</Unit>
-		<Unit filename="/home/artfin/Desktop/repos/NumerovProject/matrixreader.h">
-			<Option target="matrix_numerov"/>
-		</Unit>
-		<Unit filename="/home/artfin/Desktop/repos/NumerovProject/parameters.cpp">
-			<Option target="matrix_numerov"/>
-		</Unit>
-		<Unit filename="/home/artfin/Desktop/repos/NumerovProject/parameters.h">
 			<Option target="matrix_numerov"/>
 		</Unit>
 		<Unit filename="/home/artfin/Desktop/repos/NumerovProject/CMakeLists.txt">

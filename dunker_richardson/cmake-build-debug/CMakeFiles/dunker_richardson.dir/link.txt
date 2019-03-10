@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/dunker_richardson.dir/main.cpp.o CMakeFiles/dunker_richardson.dir/dunker.cpp.o  -o dunker_richardson ../../lib/libGMN.a /usr/lib/x86_64-linux-gnu/libgsl.so /usr/lib/x86_64-linux-gnu/libgslcblas.so 

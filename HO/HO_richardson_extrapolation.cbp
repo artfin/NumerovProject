@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="HO_richardson_extrapolation"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/artfin/Desktop/repos/NumerovProject/HO"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/artfin/Desktop/repos/NumerovProject/HO/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/artfin/Desktop/repos/NumerovProject/HO/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/artfin/Desktop/repos/NumerovProject/HO/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/artfin/Desktop/repos/NumerovProject/HO/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/artfin/Desktop/repos/NumerovProject/HO"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/artfin/Desktop/repos/NumerovProject/HO/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/artfin/Desktop/repos/NumerovProject/HO/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/artfin/Desktop/repos/NumerovProject/HO/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/artfin/Desktop/repos/NumerovProject/HO/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="HO_richardson_extrapolation">
+				<Option output="/home/artfin/Desktop/repos/NumerovProject/HO/HO_richardson_extrapolation" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/artfin/Desktop/repos/NumerovProject/HO"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/include/eigen3"/>
+					<Add directory="/home/artfin/Desktop/repos/spectra-0.7.0/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/artfin/Desktop/repos/NumerovProject/HO/Makefile&quot;  VERBOSE=1 HO_richardson_extrapolation"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/artfin/Desktop/repos/NumerovProject/HO/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/artfin/Desktop/repos/NumerovProject/HO/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/artfin/Desktop/repos/NumerovProject/HO/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="HO_richardson_extrapolation/fast">
+				<Option output="/home/artfin/Desktop/repos/NumerovProject/HO/HO_richardson_extrapolation" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/artfin/Desktop/repos/NumerovProject/HO"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/include/eigen3"/>
+					<Add directory="/home/artfin/Desktop/repos/spectra-0.7.0/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/artfin/Desktop/repos/NumerovProject/HO/Makefile&quot;  VERBOSE=1 HO_richardson_extrapolation/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/artfin/Desktop/repos/NumerovProject/HO/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/artfin/Desktop/repos/NumerovProject/HO/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/artfin/Desktop/repos/NumerovProject/HO/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/artfin/Desktop/repos/NumerovProject/HO"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/artfin/Desktop/repos/NumerovProject/HO/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/artfin/Desktop/repos/NumerovProject/HO/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/artfin/Desktop/repos/NumerovProject/HO/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/artfin/Desktop/repos/NumerovProject/HO/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/artfin/Desktop/repos/NumerovProject/HO/HO_richardson_extrapolation.cpp">
+			<Option target="HO_richardson_extrapolation"/>
+		</Unit>
+		<Unit filename="/home/artfin/Desktop/repos/NumerovProject/HO/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
-    <generated>
-      <config projectName="matrix_numerov" targetName="matrix_numerov" />
-    </generated>
+    <generated />
   </component>
   <component name="CMakeSettings">
     <configurations>
@@ -12,114 +10,60 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eda0847d-4c9b-404f-8655-80f95f5ec564" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/eigenvalue.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/eigenvalue.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/10order/a.mtx" beforeDir="false" afterPath="$PROJECT_DIR$/10order/a.mtx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/10order/b.mtx" beforeDir="false" afterPath="$PROJECT_DIR$/10order/b.mtx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/12order/a.mtx" beforeDir="false" afterPath="$PROJECT_DIR$/12order/a.mtx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/12order/b.mtx" beforeDir="false" afterPath="$PROJECT_DIR$/12order/b.mtx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/14order/a.mtx" beforeDir="false" afterPath="$PROJECT_DIR$/14order/a.mtx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/14order/b.mtx" beforeDir="false" afterPath="$PROJECT_DIR$/14order/b.mtx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/4order/a.mtx" beforeDir="false" afterPath="$PROJECT_DIR$/4order/a.mtx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/4order/b.mtx" beforeDir="false" afterPath="$PROJECT_DIR$/4order/b.mtx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/6order/a.mtx" beforeDir="false" afterPath="$PROJECT_DIR$/6order/a.mtx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/6order/b.mtx" beforeDir="false" afterPath="$PROJECT_DIR$/6order/b.mtx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/8order/a.mtx" beforeDir="false" afterPath="$PROJECT_DIR$/8order/a.mtx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/8order/b.mtx" beforeDir="false" afterPath="$PROJECT_DIR$/8order/b.mtx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NumerovProject.pro" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NumerovProject.pro.user" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README" beforeDir="false" afterPath="$PROJECT_DIR$/README" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/Makefile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/NumerovProject" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/constants.h" beforeDir="false" afterPath="$PROJECT_DIR$/constants.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/filereader.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/filereader.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/filereader.h" beforeDir="false" afterPath="$PROJECT_DIR$/filereader.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/generalizedmatrixnumerov.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/generalizedmatrixnumerov.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/generalizedmatrixnumerov.h" beforeDir="false" afterPath="$PROJECT_DIR$/generalizedmatrixnumerov.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/matrixnumerov.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/matrixnumerov.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/matrixnumerov.h" beforeDir="false" afterPath="$PROJECT_DIR$/matrixnumerov.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/matrixreader.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/matrixreader.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/matrixreader.h" beforeDir="false" afterPath="$PROJECT_DIR$/matrixreader.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parameters.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/parameters.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parameters.h" beforeDir="false" afterPath="$PROJECT_DIR$/parameters.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parameters.inp" beforeDir="false" afterPath="$PROJECT_DIR$/parameters.inp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/potentials/h2_morsePotential.txt" beforeDir="false" afterPath="$PROJECT_DIR$/potentials/h2_morsePotential.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tex/matrixNumerov.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tex/matrixNumerov.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tex/matrixNumerov.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tex/matrixNumerov.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.13.2/CMakeSystem.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.13.2/CMakeSystem.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/matrix_numerov.dir/CXX.includecache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/matrix_numerov.dir/DependInfo.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/matrix_numerov.dir/build.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/matrix_numerov.dir/cmake_clean.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/matrix_numerov.dir/depend.internal" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/matrix_numerov.dir/depend.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/matrix_numerov.dir/flags.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/matrix_numerov.dir/link.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/matrix_numerov.dir/progress.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/matrix_numerov" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/matrix_numerov.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/matrix_numerov.cbp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/constants.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eigenvalue.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/lib/eigenvalue.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eigenvalue.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/eigenvalue.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/filereader.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/lib/filereader.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/filereader.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/filereader.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/generalizedmatrixnumerov.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/lib/generalizedmatrixnumerov.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/generalizedmatrixnumerov.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/generalizedmatrixnumerov.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/matrixnumerov.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/matrixnumerov.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/matrixreader.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/lib/matrixreader.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/matrixreader.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/matrixreader.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parameters.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/lib/parameters.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parameters.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/parameters.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parameters.inp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/polint/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/polint/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/polint/cmake-build-debug/CMakeFiles/polint.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/polint/cmake-build-debug/CMakeFiles/polint.dir/depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/polint/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/polint/main.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
+    <ignored path="$PROJECT_DIR$/HO/cmake-build-debug/" />
+    <ignored path="$PROJECT_DIR$/HO/CMakeFiles/" />
+    <ignored path="$PROJECT_DIR$/morse_h2/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/main.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="326">
-              <caret line="110" column="17" selection-start-line="110" selection-start-column="17" selection-end-line="110" selection-end-column="17" />
-              <folding>
-                <element signature="e#0#19#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="21" column="24" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/eigenvalue.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" selection-start-line="5" selection-end-line="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/eigenvalue.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" selection-start-line="11" selection-end-line="11" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/generalizedmatrixnumerov.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="11" selection-start-column="11" selection-end-column="11" />
-              <folding>
-                <element signature="e#14#37#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/generalizedmatrixnumerov.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1440">
-              <caret line="96" column="22" selection-start-line="96" selection-start-column="22" selection-end-line="96" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -141,23 +85,28 @@
         <option value="$PROJECT_DIR$/filereader.cpp" />
         <option value="$PROJECT_DIR$/matrixreader.cpp" />
         <option value="$PROJECT_DIR$/matrixreader.h" />
-        <option value="$PROJECT_DIR$/parameters.inp" />
         <option value="$PROJECT_DIR$/parameters.cpp" />
         <option value="$PROJECT_DIR$/parameters.h" />
         <option value="$PROJECT_DIR$/eigenvalue.h" />
-        <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/generalizedmatrixnumerov.h" />
         <option value="$PROJECT_DIR$/generalizedmatrixnumerov.cpp" />
+        <option value="$PROJECT_DIR$/parameters.inp" />
         <option value="$PROJECT_DIR$/main.cpp" />
+        <option value="$PROJECT_DIR$/test_harmonic_oscillator/HO_richardson_extrapolation.cpp" />
+        <option value="$PROJECT_DIR$/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/HO/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/morse_h2/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/morse_h2/parameters.inp" />
+        <option value="$PROJECT_DIR$/morse_h2/main.cpp" />
       </list>
     </option>
   </component>
   <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="19" />
-    <option name="y" value="513" />
-    <option name="width" value="1193" />
-    <option name="height" value="450" />
+    <option name="x" value="91" />
+    <option name="y" value="530" />
+    <option name="width" value="1084" />
+    <option name="height" value="862" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -165,24 +114,23 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="matrix_numerov" type="b2602c69:ProjectViewProjectNode" />
-              <item name="NumerovProject" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
+      <pane id="ProjectPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/morse_richardson/CMakeLists.txt" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/test_harmonic_oscillator" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/morse_h2" />
+      <recent name="$PROJECT_DIR$/lib" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -195,13 +143,6 @@
         </RuleState>
       </list>
     </option>
-  </component>
-  <component name="RunManager">
-    <configuration name="matrix_numerov" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="matrix_numerov" TARGET_NAME="matrix_numerov" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="matrix_numerov" RUN_TARGET_NAME="matrix_numerov">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -220,17 +161,19 @@
       <workItem from="1552075503142" duration="5394000" />
       <workItem from="1552126283187" duration="7743000" />
       <workItem from="1552142605246" duration="599000" />
+      <workItem from="1552147821453" duration="7338000" />
+      <workItem from="1552213961340" duration="7441000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32586000" />
+    <option name="totallyTimeSpent" value="47365000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1213" height="999" extended-state="6" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="1" weight="0.2673522" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.2673522" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Version Control" order="0" />
       <window_info anchor="bottom" id="Terminal" order="1" weight="0.32988507" />
@@ -239,10 +182,10 @@
       <window_info anchor="bottom" id="Messages" order="4" weight="0.47586206" />
       <window_info anchor="bottom" id="Message" order="5" />
       <window_info anchor="bottom" id="Find" order="6" weight="0.32988507" />
-      <window_info anchor="bottom" id="Run" order="7" weight="0.31954023" />
+      <window_info anchor="bottom" id="Run" order="7" weight="0.3632184" />
       <window_info anchor="bottom" id="Debug" order="8" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
-      <window_info anchor="bottom" id="CMake" order="10" />
+      <window_info active="true" anchor="bottom" id="CMake" order="10" visible="true" weight="0.32988507" />
       <window_info anchor="bottom" id="Inspection" order="11" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="12" />
       <window_info anchor="right" id="Database" order="0" />
@@ -258,13 +201,13 @@
       <window_info anchor="bottom" id="Terminal" order="1" weight="0.32988507" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="3" />
-      <window_info anchor="bottom" id="Messages" order="4" weight="0.51609194" />
+      <window_info anchor="bottom" id="Messages" order="4" visible="true" weight="0.47586206" />
       <window_info anchor="bottom" id="Message" order="5" />
       <window_info anchor="bottom" id="Find" order="6" weight="0.32988507" />
-      <window_info anchor="bottom" id="Run" order="7" visible="true" weight="0.31954023" />
+      <window_info anchor="bottom" id="Run" order="7" weight="0.3632184" />
       <window_info anchor="bottom" id="Debug" order="8" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
-      <window_info anchor="bottom" id="CMake" order="10" />
+      <window_info anchor="bottom" id="CMake" order="10" weight="0.32988507" />
       <window_info anchor="bottom" id="Inspection" order="11" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="12" />
       <window_info anchor="right" id="Database" order="0" />
@@ -284,7 +227,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/filereader.h">
+    <entry file="file://$PROJECT_DIR$/lib/filereader.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="14" column="4" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
@@ -294,45 +237,24 @@
     <entry file="file://$PROJECT_DIR$/README">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/constants.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/filereader.cpp">
+    <entry file="file://$PROJECT_DIR$/lib/filereader.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
           <caret line="39" column="60" selection-start-line="39" selection-start-column="60" selection-end-line="39" selection-end-column="60" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/matrixreader.cpp">
+    <entry file="file://$PROJECT_DIR$/lib/matrixreader.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1590">
           <caret line="106" column="4" selection-start-line="106" selection-start-column="4" selection-end-line="106" selection-end-column="4" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/matrixreader.h">
+    <entry file="file://$PROJECT_DIR$/lib/matrixreader.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
           <caret line="25" column="79" selection-start-line="25" selection-start-column="79" selection-end-line="25" selection-end-column="79" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/parameters.inp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/matrixnumerov.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1305">
-          <caret line="87" selection-start-line="87" selection-end-line="87" />
         </state>
       </provider>
     </entry>
@@ -346,14 +268,7 @@
     <entry file="file://$PROJECT_DIR$/4order/a.mtx">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/parameters.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1560">
-          <caret line="104" selection-start-line="104" selection-end-line="104" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/parameters.h">
+    <entry file="file://$PROJECT_DIR$/lib/parameters.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="495">
           <caret line="33" column="47" selection-start-line="33" selection-start-column="47" selection-end-line="33" selection-end-column="47" />
@@ -383,38 +298,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.cpp">
+    <entry file="file://$PROJECT_DIR$/lib/parameters.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="326">
-          <caret line="110" column="17" selection-start-line="110" selection-start-column="17" selection-end-line="110" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="695">
+          <caret line="104" selection-start-line="104" selection-end-line="104" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="24" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/eigenvalue.cpp">
+    <entry file="file://$PROJECT_DIR$/lib/eigenvalue.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" selection-start-line="5" selection-end-line="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/eigenvalue.h">
+    <entry file="file://$PROJECT_DIR$/lib/eigenvalue.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="11" selection-start-line="11" selection-end-line="11" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/generalizedmatrixnumerov.h">
+    <entry file="file://$PROJECT_DIR$/lib/generalizedmatrixnumerov.h">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="11" selection-start-column="11" selection-end-column="11" />
@@ -424,10 +329,80 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/generalizedmatrixnumerov.cpp">
+    <entry file="file://$PROJECT_DIR$/lib/generalizedmatrixnumerov.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1440">
+        <state relative-caret-position="785">
           <caret line="96" column="22" selection-start-line="96" selection-start-column="22" selection-end-line="96" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/matrixnumerov.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="620">
+          <caret line="87" selection-start-line="87" selection-end-line="87" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/constants.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/polint/cmake-build-debug/cmake_install.cmake">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="291">
+          <caret line="40" selection-start-line="40" selection-end-line="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-473" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="8" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HO/HO_richardson_extrapolation.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="214">
+          <caret line="148" selection-start-line="148" selection-end-line="148" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HO/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/morse_h2/parameters.inp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/morse_h2/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="935">
+          <caret line="137" column="27" selection-start-line="137" selection-start-column="27" selection-end-line="137" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/morse_h2/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
         </state>
       </provider>
     </entry>

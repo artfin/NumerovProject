@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/morse_quantum_pf.dir/main.cpp.o  -o morse_quantum_pf 

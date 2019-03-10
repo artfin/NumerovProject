@@ -150,7 +150,7 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=matrix_numerov
+CMAKE_PROJECT_NAME:STATIC=generalized_matrix_numerov
 
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=/usr/bin/ranlib
@@ -239,10 +239,10 @@ ProcessorCount_cmd_getconf:FILEPATH=/usr/bin/getconf
 ProcessorCount_cmd_sysctl:FILEPATH=/sbin/sysctl
 
 //Value Computed by CMake
-matrix_numerov_BINARY_DIR:STATIC=/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug
+generalized_matrix_numerov_BINARY_DIR:STATIC=/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug
 
 //Value Computed by CMake
-matrix_numerov_SOURCE_DIR:STATIC=/home/artfin/Desktop/repos/NumerovProject
+generalized_matrix_numerov_SOURCE_DIR:STATIC=/home/artfin/Desktop/repos/NumerovProject
 
 
 ########################

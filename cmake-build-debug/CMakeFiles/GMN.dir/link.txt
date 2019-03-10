@@ -1,0 +1,2 @@
+/usr/bin/ar qc libGMN.a  CMakeFiles/GMN.dir/lib/eigenvalue.cpp.o CMakeFiles/GMN.dir/lib/filereader.cpp.o CMakeFiles/GMN.dir/lib/generalizedmatrixnumerov.cpp.o CMakeFiles/GMN.dir/lib/matrixreader.cpp.o CMakeFiles/GMN.dir/lib/parameters.cpp.o
+/usr/bin/ranlib libGMN.a

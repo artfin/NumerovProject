@@ -1,0 +1,3 @@
+/home/artfin/Desktop/repos/NumerovProject/dunker_richardson/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/artfin/Desktop/repos/NumerovProject/dunker_richardson/cmake-build-debug/CMakeFiles/dunker_richardson.dir
+/home/artfin/Desktop/repos/NumerovProject/dunker_richardson/cmake-build-debug/CMakeFiles/edit_cache.dir

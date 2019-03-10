@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/artfin/Desktop/repos/NumerovProject/constants.h
+
+/home/artfin/Desktop/repos/NumerovProject/dunker_quantum_pf/main.cpp
+iostream
+-
+cmath
+-
+vector
+-
+iomanip
+-
+string
+-
+fstream
+-
+sstream
+-
+../constants.h
+/home/artfin/Desktop/repos/NumerovProject/constants.h
+

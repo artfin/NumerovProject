@@ -1,0 +1,5 @@
+/opt/clion-2018.3.4/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/artfin/Desktop/repos/NumerovProject/dunker_richardson
+-- Could NOT find PkgConfig (missing: PKG_CONFIG_EXECUTABLE) 
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/artfin/Desktop/repos/NumerovProject/dunker_richardson/cmake-build-debug

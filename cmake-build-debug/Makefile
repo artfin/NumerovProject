@@ -56,16 +56,17 @@ CMAKE_BINARY_DIR = /home/artfin/Desktop/repos/NumerovProject/cmake-build-debug
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/opt/clion-2018.3.4/bin/cmake/linux/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/opt/clion-2018.3.4/bin/cmake/linux/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
 
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/opt/clion-2018.3.4/bin/cmake/linux/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
 
 # Special rule for the target edit_cache
 edit_cache:
@@ -77,6 +78,51 @@ edit_cache:
 edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
+
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/opt/clion-2018.3.4/bin/cmake/linux/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
+
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+
+.PHONY : list_install_components/fast
+
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/opt/clion-2018.3.4/bin/cmake/linux/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/opt/clion-2018.3.4/bin/cmake/linux/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
+
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/opt/clion-2018.3.4/bin/cmake/linux/bin/cmake -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/opt/clion-2018.3.4/bin/cmake/linux/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -111,206 +157,152 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named matrix_numerov
+# Target rules for targets named GMN
 
 # Build rule for target.
-matrix_numerov: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 matrix_numerov
-.PHONY : matrix_numerov
+GMN: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 GMN
+.PHONY : GMN
 
 # fast build rule for target.
-matrix_numerov/fast:
-	$(MAKE) -f CMakeFiles/matrix_numerov.dir/build.make CMakeFiles/matrix_numerov.dir/build
-.PHONY : matrix_numerov/fast
+GMN/fast:
+	$(MAKE) -f CMakeFiles/GMN.dir/build.make CMakeFiles/GMN.dir/build
+.PHONY : GMN/fast
 
-eigenvalue.o: eigenvalue.cpp.o
+lib/eigenvalue.o: lib/eigenvalue.cpp.o
 
-.PHONY : eigenvalue.o
-
-# target to build an object file
-eigenvalue.cpp.o:
-	$(MAKE) -f CMakeFiles/matrix_numerov.dir/build.make CMakeFiles/matrix_numerov.dir/eigenvalue.cpp.o
-.PHONY : eigenvalue.cpp.o
-
-eigenvalue.i: eigenvalue.cpp.i
-
-.PHONY : eigenvalue.i
-
-# target to preprocess a source file
-eigenvalue.cpp.i:
-	$(MAKE) -f CMakeFiles/matrix_numerov.dir/build.make CMakeFiles/matrix_numerov.dir/eigenvalue.cpp.i
-.PHONY : eigenvalue.cpp.i
-
-eigenvalue.s: eigenvalue.cpp.s
-
-.PHONY : eigenvalue.s
-
-# target to generate assembly for a file
-eigenvalue.cpp.s:
-	$(MAKE) -f CMakeFiles/matrix_numerov.dir/build.make CMakeFiles/matrix_numerov.dir/eigenvalue.cpp.s
-.PHONY : eigenvalue.cpp.s
-
-filereader.o: filereader.cpp.o
-
-.PHONY : filereader.o
+.PHONY : lib/eigenvalue.o
 
 # target to build an object file
-filereader.cpp.o:
-	$(MAKE) -f CMakeFiles/matrix_numerov.dir/build.make CMakeFiles/matrix_numerov.dir/filereader.cpp.o
-.PHONY : filereader.cpp.o
+lib/eigenvalue.cpp.o:
+	$(MAKE) -f CMakeFiles/GMN.dir/build.make CMakeFiles/GMN.dir/lib/eigenvalue.cpp.o
+.PHONY : lib/eigenvalue.cpp.o
 
-filereader.i: filereader.cpp.i
+lib/eigenvalue.i: lib/eigenvalue.cpp.i
 
-.PHONY : filereader.i
+.PHONY : lib/eigenvalue.i
 
 # target to preprocess a source file
-filereader.cpp.i:
-	$(MAKE) -f CMakeFiles/matrix_numerov.dir/build.make CMakeFiles/matrix_numerov.dir/filereader.cpp.i
-.PHONY : filereader.cpp.i
+lib/eigenvalue.cpp.i:
+	$(MAKE) -f CMakeFiles/GMN.dir/build.make CMakeFiles/GMN.dir/lib/eigenvalue.cpp.i
+.PHONY : lib/eigenvalue.cpp.i
 
-filereader.s: filereader.cpp.s
+lib/eigenvalue.s: lib/eigenvalue.cpp.s
 
-.PHONY : filereader.s
+.PHONY : lib/eigenvalue.s
 
 # target to generate assembly for a file
-filereader.cpp.s:
-	$(MAKE) -f CMakeFiles/matrix_numerov.dir/build.make CMakeFiles/matrix_numerov.dir/filereader.cpp.s
-.PHONY : filereader.cpp.s
+lib/eigenvalue.cpp.s:
+	$(MAKE) -f CMakeFiles/GMN.dir/build.make CMakeFiles/GMN.dir/lib/eigenvalue.cpp.s
+.PHONY : lib/eigenvalue.cpp.s
 
-generalizedmatrixnumerov.o: generalizedmatrixnumerov.cpp.o
+lib/filereader.o: lib/filereader.cpp.o
 
-.PHONY : generalizedmatrixnumerov.o
+.PHONY : lib/filereader.o
 
 # target to build an object file
-generalizedmatrixnumerov.cpp.o:
-	$(MAKE) -f CMakeFiles/matrix_numerov.dir/build.make CMakeFiles/matrix_numerov.dir/generalizedmatrixnumerov.cpp.o
-.PHONY : generalizedmatrixnumerov.cpp.o
+lib/filereader.cpp.o:
+	$(MAKE) -f CMakeFiles/GMN.dir/build.make CMakeFiles/GMN.dir/lib/filereader.cpp.o
+.PHONY : lib/filereader.cpp.o
 
-generalizedmatrixnumerov.i: generalizedmatrixnumerov.cpp.i
+lib/filereader.i: lib/filereader.cpp.i
 
-.PHONY : generalizedmatrixnumerov.i
+.PHONY : lib/filereader.i
 
 # target to preprocess a source file
-generalizedmatrixnumerov.cpp.i:
-	$(MAKE) -f CMakeFiles/matrix_numerov.dir/build.make CMakeFiles/matrix_numerov.dir/generalizedmatrixnumerov.cpp.i
-.PHONY : generalizedmatrixnumerov.cpp.i
+lib/filereader.cpp.i:
+	$(MAKE) -f CMakeFiles/GMN.dir/build.make CMakeFiles/GMN.dir/lib/filereader.cpp.i
+.PHONY : lib/filereader.cpp.i
 
-generalizedmatrixnumerov.s: generalizedmatrixnumerov.cpp.s
+lib/filereader.s: lib/filereader.cpp.s
 
-.PHONY : generalizedmatrixnumerov.s
+.PHONY : lib/filereader.s
 
 # target to generate assembly for a file
-generalizedmatrixnumerov.cpp.s:
-	$(MAKE) -f CMakeFiles/matrix_numerov.dir/build.make CMakeFiles/matrix_numerov.dir/generalizedmatrixnumerov.cpp.s
-.PHONY : generalizedmatrixnumerov.cpp.s
+lib/filereader.cpp.s:
+	$(MAKE) -f CMakeFiles/GMN.dir/build.make CMakeFiles/GMN.dir/lib/filereader.cpp.s
+.PHONY : lib/filereader.cpp.s
 
-main.o: main.cpp.o
+lib/generalizedmatrixnumerov.o: lib/generalizedmatrixnumerov.cpp.o
 
-.PHONY : main.o
+.PHONY : lib/generalizedmatrixnumerov.o
 
 # target to build an object file
-main.cpp.o:
-	$(MAKE) -f CMakeFiles/matrix_numerov.dir/build.make CMakeFiles/matrix_numerov.dir/main.cpp.o
-.PHONY : main.cpp.o
+lib/generalizedmatrixnumerov.cpp.o:
+	$(MAKE) -f CMakeFiles/GMN.dir/build.make CMakeFiles/GMN.dir/lib/generalizedmatrixnumerov.cpp.o
+.PHONY : lib/generalizedmatrixnumerov.cpp.o
 
-main.i: main.cpp.i
+lib/generalizedmatrixnumerov.i: lib/generalizedmatrixnumerov.cpp.i
 
-.PHONY : main.i
+.PHONY : lib/generalizedmatrixnumerov.i
 
 # target to preprocess a source file
-main.cpp.i:
-	$(MAKE) -f CMakeFiles/matrix_numerov.dir/build.make CMakeFiles/matrix_numerov.dir/main.cpp.i
-.PHONY : main.cpp.i
+lib/generalizedmatrixnumerov.cpp.i:
+	$(MAKE) -f CMakeFiles/GMN.dir/build.make CMakeFiles/GMN.dir/lib/generalizedmatrixnumerov.cpp.i
+.PHONY : lib/generalizedmatrixnumerov.cpp.i
 
-main.s: main.cpp.s
+lib/generalizedmatrixnumerov.s: lib/generalizedmatrixnumerov.cpp.s
 
-.PHONY : main.s
+.PHONY : lib/generalizedmatrixnumerov.s
 
 # target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) -f CMakeFiles/matrix_numerov.dir/build.make CMakeFiles/matrix_numerov.dir/main.cpp.s
-.PHONY : main.cpp.s
+lib/generalizedmatrixnumerov.cpp.s:
+	$(MAKE) -f CMakeFiles/GMN.dir/build.make CMakeFiles/GMN.dir/lib/generalizedmatrixnumerov.cpp.s
+.PHONY : lib/generalizedmatrixnumerov.cpp.s
 
-matrixnumerov.o: matrixnumerov.cpp.o
+lib/matrixreader.o: lib/matrixreader.cpp.o
 
-.PHONY : matrixnumerov.o
+.PHONY : lib/matrixreader.o
 
 # target to build an object file
-matrixnumerov.cpp.o:
-	$(MAKE) -f CMakeFiles/matrix_numerov.dir/build.make CMakeFiles/matrix_numerov.dir/matrixnumerov.cpp.o
-.PHONY : matrixnumerov.cpp.o
+lib/matrixreader.cpp.o:
+	$(MAKE) -f CMakeFiles/GMN.dir/build.make CMakeFiles/GMN.dir/lib/matrixreader.cpp.o
+.PHONY : lib/matrixreader.cpp.o
 
-matrixnumerov.i: matrixnumerov.cpp.i
+lib/matrixreader.i: lib/matrixreader.cpp.i
 
-.PHONY : matrixnumerov.i
+.PHONY : lib/matrixreader.i
 
 # target to preprocess a source file
-matrixnumerov.cpp.i:
-	$(MAKE) -f CMakeFiles/matrix_numerov.dir/build.make CMakeFiles/matrix_numerov.dir/matrixnumerov.cpp.i
-.PHONY : matrixnumerov.cpp.i
+lib/matrixreader.cpp.i:
+	$(MAKE) -f CMakeFiles/GMN.dir/build.make CMakeFiles/GMN.dir/lib/matrixreader.cpp.i
+.PHONY : lib/matrixreader.cpp.i
 
-matrixnumerov.s: matrixnumerov.cpp.s
+lib/matrixreader.s: lib/matrixreader.cpp.s
 
-.PHONY : matrixnumerov.s
+.PHONY : lib/matrixreader.s
 
 # target to generate assembly for a file
-matrixnumerov.cpp.s:
-	$(MAKE) -f CMakeFiles/matrix_numerov.dir/build.make CMakeFiles/matrix_numerov.dir/matrixnumerov.cpp.s
-.PHONY : matrixnumerov.cpp.s
+lib/matrixreader.cpp.s:
+	$(MAKE) -f CMakeFiles/GMN.dir/build.make CMakeFiles/GMN.dir/lib/matrixreader.cpp.s
+.PHONY : lib/matrixreader.cpp.s
 
-matrixreader.o: matrixreader.cpp.o
+lib/parameters.o: lib/parameters.cpp.o
 
-.PHONY : matrixreader.o
+.PHONY : lib/parameters.o
 
 # target to build an object file
-matrixreader.cpp.o:
-	$(MAKE) -f CMakeFiles/matrix_numerov.dir/build.make CMakeFiles/matrix_numerov.dir/matrixreader.cpp.o
-.PHONY : matrixreader.cpp.o
+lib/parameters.cpp.o:
+	$(MAKE) -f CMakeFiles/GMN.dir/build.make CMakeFiles/GMN.dir/lib/parameters.cpp.o
+.PHONY : lib/parameters.cpp.o
 
-matrixreader.i: matrixreader.cpp.i
+lib/parameters.i: lib/parameters.cpp.i
 
-.PHONY : matrixreader.i
-
-# target to preprocess a source file
-matrixreader.cpp.i:
-	$(MAKE) -f CMakeFiles/matrix_numerov.dir/build.make CMakeFiles/matrix_numerov.dir/matrixreader.cpp.i
-.PHONY : matrixreader.cpp.i
-
-matrixreader.s: matrixreader.cpp.s
-
-.PHONY : matrixreader.s
-
-# target to generate assembly for a file
-matrixreader.cpp.s:
-	$(MAKE) -f CMakeFiles/matrix_numerov.dir/build.make CMakeFiles/matrix_numerov.dir/matrixreader.cpp.s
-.PHONY : matrixreader.cpp.s
-
-parameters.o: parameters.cpp.o
-
-.PHONY : parameters.o
-
-# target to build an object file
-parameters.cpp.o:
-	$(MAKE) -f CMakeFiles/matrix_numerov.dir/build.make CMakeFiles/matrix_numerov.dir/parameters.cpp.o
-.PHONY : parameters.cpp.o
-
-parameters.i: parameters.cpp.i
-
-.PHONY : parameters.i
+.PHONY : lib/parameters.i
 
 # target to preprocess a source file
-parameters.cpp.i:
-	$(MAKE) -f CMakeFiles/matrix_numerov.dir/build.make CMakeFiles/matrix_numerov.dir/parameters.cpp.i
-.PHONY : parameters.cpp.i
+lib/parameters.cpp.i:
+	$(MAKE) -f CMakeFiles/GMN.dir/build.make CMakeFiles/GMN.dir/lib/parameters.cpp.i
+.PHONY : lib/parameters.cpp.i
 
-parameters.s: parameters.cpp.s
+lib/parameters.s: lib/parameters.cpp.s
 
-.PHONY : parameters.s
+.PHONY : lib/parameters.s
 
 # target to generate assembly for a file
-parameters.cpp.s:
-	$(MAKE) -f CMakeFiles/matrix_numerov.dir/build.make CMakeFiles/matrix_numerov.dir/parameters.cpp.s
-.PHONY : parameters.cpp.s
+lib/parameters.cpp.s:
+	$(MAKE) -f CMakeFiles/GMN.dir/build.make CMakeFiles/GMN.dir/lib/parameters.cpp.s
+.PHONY : lib/parameters.cpp.s
 
 # Help Target
 help:
@@ -318,30 +310,28 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... rebuild_cache"
-	@echo "... matrix_numerov"
+	@echo "... install/strip"
 	@echo "... edit_cache"
-	@echo "... eigenvalue.o"
-	@echo "... eigenvalue.i"
-	@echo "... eigenvalue.s"
-	@echo "... filereader.o"
-	@echo "... filereader.i"
-	@echo "... filereader.s"
-	@echo "... generalizedmatrixnumerov.o"
-	@echo "... generalizedmatrixnumerov.i"
-	@echo "... generalizedmatrixnumerov.s"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
-	@echo "... matrixnumerov.o"
-	@echo "... matrixnumerov.i"
-	@echo "... matrixnumerov.s"
-	@echo "... matrixreader.o"
-	@echo "... matrixreader.i"
-	@echo "... matrixreader.s"
-	@echo "... parameters.o"
-	@echo "... parameters.i"
-	@echo "... parameters.s"
+	@echo "... GMN"
+	@echo "... rebuild_cache"
+	@echo "... list_install_components"
+	@echo "... install/local"
+	@echo "... install"
+	@echo "... lib/eigenvalue.o"
+	@echo "... lib/eigenvalue.i"
+	@echo "... lib/eigenvalue.s"
+	@echo "... lib/filereader.o"
+	@echo "... lib/filereader.i"
+	@echo "... lib/filereader.s"
+	@echo "... lib/generalizedmatrixnumerov.o"
+	@echo "... lib/generalizedmatrixnumerov.i"
+	@echo "... lib/generalizedmatrixnumerov.s"
+	@echo "... lib/matrixreader.o"
+	@echo "... lib/matrixreader.i"
+	@echo "... lib/matrixreader.s"
+	@echo "... lib/parameters.o"
+	@echo "... lib/parameters.i"
+	@echo "... lib/parameters.s"
 .PHONY : help
 
 

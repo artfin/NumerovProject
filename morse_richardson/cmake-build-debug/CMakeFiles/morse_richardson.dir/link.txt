@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/morse_richardson.dir/main.cpp.o CMakeFiles/morse_richardson.dir/morse.cpp.o  -o morse_richardson ../../lib/libGMN.a /usr/lib/x86_64-linux-gnu/libgsl.so /usr/lib/x86_64-linux-gnu/libgslcblas.so 
