@@ -79,17 +79,27 @@ int main()
         total_levels += (2 * level.j + 1);
     std::cout << "Total levels: " << total_levels << std::endl;
 
-    double LTEMP = 50.0;
-    double HTEMP = 1000.0;
+    Level max_level = levels[0];
+    for ( auto const& level : levels ) {
+        if ( level.value > max_level.value ) {
+            max_level = level;
+        }
+    }
+    std::cout << "Max level: " << max_level.value << "; j: " << max_level.j <<
+                 "; degeneracy: " << (2.0*max_level.j + 1) << std::endl;
+
+    double LTEMP = 500000.0;
+    double HTEMP = 500000.0;
     double STEP = 10.0;
 
-    std::ofstream ofs( "../quantum_pf.txt" );
-    ofs << std::fixed << std::setprecision(10);
+    //std::ofstream ofs( "../quantum_pf.txt" );
+    //ofs << std::fixed << std::setprecision(10);
 
+    std::cout << std::fixed << std::setprecision(10);
     for ( double TEMP = LTEMP; TEMP <= HTEMP; TEMP += STEP )
     {
         double partsum = CALCPARTSUM( TEMP, levels );
-        ofs << TEMP << "   " << partsum << std::endl;
+        std::cout << TEMP << "   " << partsum << std::endl;
     }
 
     return 0;

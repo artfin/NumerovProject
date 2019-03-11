@@ -16,8 +16,10 @@ double integrand_(hep::mc_point<double> const& x, const double Temperature)
     if ( R < 5.0 )
         return 0.0;
 
-    double U = Dunker::potential( R ) / constants::HTOCM;
+    double U_CM = Dunker::potential( R );
+    double U = U_CM / constants::HTOCM;
 
+    //if ( U_CM < -0.030794 ) {
     if ( U < 0 ) {
         double U_kT = U * constants::HTOJ / (constants::BOLTZCONST * Temperature);
         double exp_ = std::exp(-U_kT);
@@ -44,8 +46,8 @@ int main( int argc, char * argv[] )
 
     auto start = std::chrono::high_resolution_clock::now();
 
-    double LTEMP = 50;
-    double HTEMP = 1000;
+    double LTEMP = 5000000;
+    double HTEMP = 5000000;
     double STEP = 10;
 
     std::vector<double> temps;
@@ -87,11 +89,15 @@ int main( int argc, char * argv[] )
         pfs.push_back( ans );
     }
 
-    std::ofstream ofs( "../classical_pf.txt" );
+    std::cout << std::fixed << std::setprecision(10);
+    std::cout << "TEMPERATURE: " << temps.back( ) << "; PF: " << pfs.back() << std::endl;
+    /*
+    std::ofstream ofs( "../classical_pf_to_upper_level.txt" );
     ofs << std::fixed << std::setprecision(12);
 
     for ( size_t k = 0; k < temps.size(); ++k )
         ofs << temps[k] << " " << pfs[k] << std::endl;
+    */
 
     return 0;
 }

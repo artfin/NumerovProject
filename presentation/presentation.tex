@@ -1,0 +1,259 @@
+\documentclass[10pt,pdf,hyperref={unicode},xcolor=dvipsnames]{beamer}
+
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{bbm}
+
+% русский текст в формулах?
+\usepackage{mathtext}
+
+% русский
+\usepackage[T2A]{fontenc}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+
+% рисунки
+\usepackage{graphicx, caption, subcaption}
+
+\usetheme{CambridgeUS}
+
+\usepackage{csquotes}
+\usepackage[backend=bibtex]{biblatex}
+\bibliography{biblio}
+
+\usepackage{physics}
+\usepackage{braket}
+
+% ?
+\setbeamertemplate{frametitle}[default][center]
+
+\addtobeamertemplate{navigation symbols}{}{%
+\usebeamerfont{footline}%
+\usebeamercolor[fg]{footline}%
+\hspace{1em}%
+\large\insertframenumber/\inserttotalframenumber
+}
+
+\newcommand{\mytitle}[1]{\color{blue}{\textbf{#1}}}
+
+\newcommand{\lb}{\left(}
+\newcommand{\rb}{\right)}
+\newcommand{\lsq}{\left[}
+\newcommand{\rsq}{\right]}
+
+\usepackage{dsfont}
+\usepackage{bbm}
+
+\newcommand{\bbA}{\mathbb{A}}
+\newcommand{\bbB}{\mathbb{B}}
+\newcommand{\bbV}{\mathbb{V}}
+\newcommand{\bbH}{\mathbb{H}}
+
+\newcommand{\lc}{\left\{}
+\newcommand{\rc}{\right\}}
+
+\newcommand{\psip}[1]{\psi^{(#1)}(x)}
+\newcommand{\fx}[0]{f(x)}
+\newcommand{\psix}[0]{\psi(x)}
+
+% slightly modifying gather environment
+\let\oldgather\gather
+\def\gather{\vspace*{-0.2cm}\oldgather}
+
+\begin{document}
+
+\begin{frame}{\center\mytitle{\Large Расчет классических и квантовых статистических сумм слабосвязанных систем}}
+\begin{table}[]
+\flushright
+\begin{tabular}{r}
+\large Финенко Артем \\[1ex]
+\end{tabular}
+\end{table}
+\vfill
+\center
+\today
+\end{frame}
+   
+\begin{frame}{Структура доклада}
+    \begin{block}{}
+        \begin{itemize}
+            \item Два основных подхода к одномерной задаче Штурма-Лиувилля \\
+            \item Метод Нумерова и его матричный аналог \\
+            \item Обобщенный матричный метод Нумерова \\
+            \item Метод Нумерова и трехточечная формула. Асимптотические разложения для собственных значений \\
+            \item Экстраполяция Ричардсона для собственных значений \\
+            \item Расчет колебательно-вращательных уровней в потенциале Морзе \\
+            \item Классическая статистическая сумма \\
+            \item Сравнение статсумм 
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Метод Нумерова и его матричный аналог}
+    \begin{block}{}
+        Метод Нумерова -- численный метод, позволяющий решать дифференциальные уравнения второго порядка\footnote{Метод Нумерова допускает ненулевой свободный член в ДУ}
+        \begin{gather}
+            \psip{2} = f(x) \psi(x), \quad f(x) = -\frac{2 m}{\hbar^2}\lsq E - V(x) \rsq, \quad \psip{n} = \frac{d^n}{dx^n} \psi(x).
+        \end{gather}
+        Используя Тейлоровское разложение для волновой функции
+        \begin{gather}
+            \hspace*{-0.1cm}
+            \psi(x \pm h) = \psi(x) \pm h \psip{1} + \frac{1}{2!} h^2 \psip{2} \pm \frac{1}{3!} h^3 \psip{3} + \frac{1}{4!} h^4 \psip{4} + O(h^5), \notag
+        \end{gather}
+        получим выражение для второй производной $\psip{2}$ с точностью до $O(h^4)$
+        \begin{gather}
+            \psip{2} = \frac{ \psi(x+h) + \psi(x-h) - 2\psi(x) }{ h^2 } - \frac{1}{12} h^2 \psip{4} + O ( h^4 ).
+        \end{gather}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Метод Нумерова и его матричный аналог}
+    \begin{block}{}
+        Используем это выражение для получения четвертой производной $\psip{4}$ с точностью до $O(h^2)$
+        \begin{gather}
+            \psip{4} = \frac{d^2}{dx^2} \psip{2} = \frac{d^2}{dx^2} \lsq \fx \psix \rsq = \notag \\
+                     = \frac{ f(x+h)\psi(x+h) + f(x-h)\psi(x-h) - 2f(x)\psi(x) }{ h^2 } + O(h^2). 
+        \end{gather}
+        Подставляем в выражение для второй производной (суммарный порядок остается $O(h^4)$)
+        \begin{gather}
+            \fx \psix = \frac{\psi(x+h)+\psi(x-h)-2\psi(x)}{h^2} - \hspace{5cm} \notag \\ 
+            - \frac{f(x+h) \psi(x+h) + f(x-h) \psi(x-h) - 2f(x) \psi(x)}{12} + O(h^4).
+        \end{gather}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Метод Нумерова и его матричный аналог}
+    \begin{block}{}
+        При пропагировании на сетке используют вспомогательную функцию 
+        \begin{gather}
+            \omega(x) =  \lb 1 - \frac{h^2}{12} \rb \psi(x) \\
+            \omega(x + h) = 2\omega(x) - \omega(x-h) + h^2 f(x) \psi(x).
+        \end{gather}
+        Вводя обозначения
+        \begin{gather}
+            V_{i-1} \equiv V(x-h), \quad V_i \equiv V(x), \quad V_{i+1} \equiv V(x + h) \\
+            \psi_{i - 1} \equiv \psi(x-h), \quad \psi_i \equiv \psi(x), \quad \psi_{i+1} \equiv \psi(x+h),
+        \end{gather}
+        получаем следующее выражение, удобное для матричной техники 
+        \begin{gather}
+            \hspace*{-0.3cm}
+            -\frac{\hbar^2}{2 m} \frac{\psi_{i+1} + \psi_{i-1} - 2 \psi_i}{h^2} + \frac{V_{i+1} \psi_{i+1} + V_{i-1}\psi_{i-1}+10 V_i \psi_i}{12} = E \frac{\psi_{i-1} + 10 \psi_i + \psi_{i+1}}{12}. \notag 
+        \end{gather}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Метод Нумерова и его матричный аналог}
+    \begin{block}{}
+        Матричная формулировка метода Нумерова 
+        \begin{gather}
+            -\frac{\hbar^2}{2 m} \bbA \psi + \bbB \bbV \psi = E \bbB \psi, \\
+            \psi = \lsq \psi_i, i = 1 \dots N \rsq^\top, \quad \bbV = \text{diag} \left\{ V_i, i = 1 \dots N \right\} \\
+            \bbA = \frac{1}{h^2} 
+            \begin{bmatrix}
+                -2 & 1 & 0 & 0 & \dots \\
+                 1 &-2 & 1 & 0 & \dots \\ 
+                 0 & 1 & -2& 1 & \dots \\
+                 0 & 0 & 1 & -2& \dots \\
+                 \vdots & \vdots & \vdots & \vdots & \ddots
+            \end{bmatrix}, \quad
+            \bbB = \frac{1}{12} 
+            \begin{bmatrix}
+                10 & 1 & 0 & 0 & \dots \\
+                1 & 10 & 1 & 0 & \dots \\
+                0 & 1 & 10 & 1 & \dots \\
+                0 & 0 & 1 & 10 & \dots \\
+                \vdots & \vdots & \vdots & \vdots & \ddots
+            \end{bmatrix} \\
+            \bbH \psi = E \psi, \quad \bbH = -\frac{\hbar^2}{2m} \bbB^{-1} \bbA + \bbV
+        \end{gather}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Обобщенный метод Нумерова}
+    \begin{block}{}
+        \vspace*{-0.5cm}
+        Для получения метода порядка $N = 2r + 2$, выразим вторую производную $\psip{2}$ до порядка $N$ 
+        \begin{gather}
+            \psi(x+h) + \psi(x-h) = 2 \psi(x) + \sum_{k=1}^{r+1} \frac{ 2h^{2k} }{ (2k)! } h^{2k} + O(h^{2r+4}), \\
+            \psip{2} = \frac{ \psi(x+h) + \psi(x-h) - 2\psi(x) }{ h^2 }  - \sum_{k=0}^{r-1} \frac{ 2h^{2k+2} }{ (2k+4)! } \psip{2k+4} + O(h^{2r+2}). \notag
+        \end{gather}
+        Неизвестными являются производные $\lc \psip{2k + 4}, k = 0 \dots r-1 \rc$, которые мы найдем из системы линейных уравнений
+        \begin{gather}
+            \lc
+            \begin{aligned}
+                \frac{ \psi(x+h) + \psi(x-h) - 2\psi(x) }{ 2 } &= \sum_{k=1}^{r} \frac{ h^{2k} }{ (2k)! } \psip{2k} + O(h^{2r+2}) \\ 
+                                                               &\dots \\
+                \frac{ \psi(x+r\cdot h) + \psi(x-r \cdot h) - 2\psi(x) }{ 2 } &= \sum_{k=1}^{r} \frac{ (r \cdot h)^{2k} }{ (2k)! } \psip{2k} + O(h^{2r+2}) \\ 
+            \end{aligned}
+            \right.
+        \end{gather}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Обобщенный метод Нумерова}
+    \begin{block}{}
+        \vspace*{-0.5cm}
+        В результате решения линейной системы получаем наборы коэффициентов $\lc c_i \rc_{i=1}^r$, $\lc k_i \rc_{i=1}^r$, позволяющие получить выражения
+        \begin{gather}
+            \psip{2} = \frac{1}{h^2} \sum_{i=-r}^r c_i \psi_i - \frac{2 h^{2r}}{(2r+2)!} \psip{2r+2} + O(h^{2r+2}) \\
+            \psip{2r} = \frac{1}{h^{2r}} \sum_{i=-r}^r k_i \psi_i 
+        \end{gather}
+        Воспользуемся приемом из стандратного метода Нумерова для нахождения $\psip{2r+2}$
+        \begin{gather}
+            \psip{2r+2} = \frac{d^r}{dx^r} \lb f(x) \psi(x) \rb = \frac{1}{ h^{2r} } \sum_{i=-r}^r k_i f_i \psi_i.
+        \end{gather}
+        Собирая полученные выражения, получаем уравнения обобщенного метода Нумерова 
+            \vspace*{-0.4cm}
+        \begin{gather}
+            \frac{1}{h^2} \sum_{i=-r}^r c_i \psi_i = f_i \psi_i + \sum_{i=-r}^r \frac{2}{(2r+2)!} k_i f_i \psi_i.
+        \end{gather}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Обобщенный метод Нумерова}
+    \begin{block}{Пример. Порядок $N = 8, (r = 3)$.}
+        \vspace*{-0.5cm}
+        \begin{gather}
+            \bbH \psi = E \psi, \quad \bbH = -\frac{\hbar^2}{2m} \bbB^{-1} \bbA + \bbV \\
+            \bbA = \frac{1}{180h^2}
+            \begin{bmatrix}
+                490 & 270 & -27 & 2 & 0 & \dots \\
+                270 & 490 & 270 & -27 & 2 & \dots \\
+                -27 & 270 & 490 & 270 & -27 & \dots \\
+                  2 & -27 & 270 & 490 & 270 & \dots \\
+                  0 & 2   & -27 & 270 & 490 & \dots \\
+                  \vdots & \vdots & \vdots & \vdots & \vdots & \ddots
+            \end{bmatrix}, \\
+            \bbB = \frac{1}{20160}
+            \begin{bmatrix}
+                20140 & 15 & -6 & 1 & 0 & \dots \\
+                15 & 20140 & 15 & -6 & 1 & \dots \\
+                -6 & 15 & 20140 & 15 & -6 & \dots \\
+                1 & -6 & 15 & 20140 & 15 & \dots \\
+                0 & 1 & -6 & 15 & 20140 & \dots \\
+                \vdots & \vdots & \vdots & \vdots & \vdots & \ddots
+            \end{bmatrix}
+        \end{gather}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Метод Нумерова и трехточечная формула}
+    \begin{block}{}
+        Использование трехточечной формулы для второй производной $\psip{2}$ приводит к матричной задаче, похожей на Нумеровскую \footfullcite{goorvitch1992}
+        \begin{gather}
+            -\frac{ \hbar^2 }{ 2m } \psip{2} + V(x) \psi(x) = E \psi(x), \\
+            \psip{2} = \frac{\psi(x+h) + \psi(x-h) - 2\psi(x)}{h^2} + O(h^2) \\
+            \bbH = - \frac{\hbar^2}{2m} \bbA + \bbV \\
+            \bbA = \frac{1}{h^2} 
+            \begin{bmatrix}
+                -2 & 1 & 0 & 0 & \dots \\
+                1 & -2 & 1 & 0 & \dots \\
+                0 & 1 & -2 & 1 & \dots \\
+                \vdots & \vdots & \vdots & \vdots & \ddots
+            \end{bmatrix}
+        \end{gather}
+    \end{block}
+\end{frame}
+
+\end{document}
