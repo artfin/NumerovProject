@@ -23,7 +23,7 @@ public:
     double brent( std::function<double(double)> f, double xb1, double xb2, double eps );
     void findTurningPoints();
     void setGridParameters();
-    void setGridParameters( double leftTurningPoint, double rightTurningPoint, double h );
+    void setGridParameters( double leftTurningPoint, double rightTurningPoint, int N );
 
     void set_d( double d ) { this->d = d; }
     void set_mu( double mu ) { this->mu = mu; }

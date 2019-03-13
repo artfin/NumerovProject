@@ -96,11 +96,11 @@ void Parameters::setGridParameters()
     d = (rightTurningPoint - leftTurningPoint + 4.0 * lambda) / (N - 1);
 }
 
-void Parameters::setGridParameters( const double leftTurningPoint, const double rightTurningPoint, const double d )
+void Parameters::setGridParameters( const double leftTurningPoint, const double rightTurningPoint, const int N )
 {
     FIXED_GRID = true;
     this->leftTurningPoint = leftTurningPoint;
     this->rightTurningPoint = rightTurningPoint;
-    this->d = d;
-    N = static_cast<int>( (rightTurningPoint - leftTurningPoint) / d  );
+    this->N = N - 1;
+    d = (rightTurningPoint - leftTurningPoint) / N;
 }

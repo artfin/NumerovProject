@@ -10,7 +10,7 @@
 #include <Spectra/SymEigsSolver.h>
 
 #define DEBUG_SHOW_MATRIX_STRUCTURE
-#undef DEBUG_SHOW_MATRIX_STRUCTURE
+//#undef DEBUG_SHOW_MATRIX_STRUCTURE
 
 class GeneralizedMatrixNumerov
 {

@@ -55,7 +55,7 @@ void GeneralizedMatrixNumerov::fillMatrices()
     if ( parameters->ENERGY_BASED_GRID ) {
         x = parameters->get_leftTurningPoint() - 2.0 * parameters->get_lambda();
     } else if ( parameters->FIXED_GRID ) {
-        x = parameters->get_leftTurningPoint();
+        x = parameters->get_leftTurningPoint() + d;
     }
 
 #ifdef DEBUG_SHOW_MATRIX_STRUCTURE
@@ -65,6 +65,7 @@ void GeneralizedMatrixNumerov::fillMatrices()
     for ( int i = 0; i < V.rows(); i++ )
     {
         V(i, i) = parameters->call_potential(x);
+        //std::cout << "x: " << x << "; V(" << i << ", " << i << ") = " << V(i, i) << std::endl;
         x += d;
     }
 
@@ -72,8 +73,21 @@ void GeneralizedMatrixNumerov::fillMatrices()
     std::cout << " ENDING X VALUE TO FILL POTENTIAL MATRIX: " << x << std::endl;
 #endif
 
+    /*
+    Eigen::GeneralizedSelfAdjointEigenSolver<Eigen::MatrixXd> ges;
+    H = - A / (2.0 * parameters->get_mu()) + B * V;
+    ges.compute(H, B);
+    Eigen::VectorXd eigs = ges.eigenvalues();
+    std::cout << "Generalized eigenvalues: " << std::endl;
+    for ( size_t k = 0; k < eigs.size(); k++ )
+        std::cout << eigs(k) << std::endl;
+    std::cout << "--------------------------" << std::endl;
+    */
+
     // hamiltonian matrix
     H = - B.inverse() * A / (2.0 * parameters->get_mu()) + V;
+
+    //std::cout << "H: " << std::endl << H << std::endl;
 }
 
 void GeneralizedMatrixNumerov::diagonalize( Eigen::VectorXd & eigvals, Eigen::MatrixXd & eigvecs )

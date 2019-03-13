@@ -95,7 +95,7 @@ int main()
     Dunker dunker;
 
     const int JMIN = 0;
-    const int JMAX = 50;
+    const int JMAX = 0;
 
     dunker.setJ( JMIN );
     //std::cout << " ROTATIONAL NUMBER J = " << J << std::endl;
@@ -106,8 +106,9 @@ int main()
     double leftTurningPoint = 5.5;
     double rightTurningPoint = 55.0;
     double h0 = 0.20;
+    int n = static_cast<int>((rightTurningPoint - leftTurningPoint) / h0) - 1;
     double h = h0;
-    parameters.setGridParameters( leftTurningPoint, rightTurningPoint, h );
+    parameters.setGridParameters( leftTurningPoint, rightTurningPoint, n, h );
 
 #ifdef DEBUG_SHOW_PARAMETERS
     int size_ = parameters.get_N();
@@ -121,7 +122,13 @@ int main()
     std::cout << " GRID STEP d = " << parameters.get_d() << std::endl;
     std::cout << " -----------------------------------------------------" << std::endl << std::endl;
 #endif
+    double x = 5.5;
+    for ( int k = 0; k < 100; k++ ) {
+        std::cout << x << "  " << Dunker::potential(x) << std::endl;
+        x += 0.1;
+    }
 
+    /*
     const int ORDER = 12;
     std::string dir = getDirByOrder(ORDER);
 
@@ -134,6 +141,7 @@ int main()
     const int REORDER = ORDER - 2; // order of Richardson extrapolation
 
     std::ofstream ofs("../levels.txt");
+    //std::ostream ofs( std::cout );
     ofs << "# ORDER OF GMN: " << ORDER << std::endl;
     ofs << "# ORDER OF RICHARDSON EXTRAPOLATION: " << REORDER << std::endl;
     ofs << "# MU : " << Dunker::MU << " (A.M.U.); NON-STANDARD UNITS: " << Dunker::mu << std::endl;
@@ -155,7 +163,8 @@ int main()
 
         for ( int iter = 0; iter < niter; ++iter )
         {
-            parameters.setGridParameters( leftTurningPoint, rightTurningPoint, h );
+            n = static_cast<int>( (rightTurningPoint-leftTurningPoint)/h ) + 1;
+            parameters.setGridParameters( leftTurningPoint, rightTurningPoint, n, h );
             std::vector<Eigenvalue> eigs = computeEigenvalues( generalizedMatrixNumerov, N );
 
             eigenvalues.push_back( eigs );
@@ -173,6 +182,6 @@ int main()
         second_extrapolation.clear();
         eigenvalues.clear();
     }
-
+    */
     return 0;
 }

@@ -90,15 +90,14 @@ std::vector<double> SREV( std::vector<Eigenvalue> const& Eh, std::vector<Eigenva
 int main()
 {
     Parameters parameters;
-    FileReader fileReader( "../parameters.inp", &parameters );
 
     // Test parameters for Harmonic oscillator
     parameters.set_mu( harmonic::mu );
     parameters.setPotential( harmonic::potential );
     double leftTurningPoint = -10.0;
     double rightTurningPoint = 10.0;
-    double h = 0.5;
-    parameters.setGridParameters( leftTurningPoint, rightTurningPoint, h );
+    int n = 40;
+    parameters.setGridParameters( leftTurningPoint, rightTurningPoint, n );
 
 
 #ifdef DEBUG_SHOW_PARAMETERS
@@ -114,7 +113,7 @@ int main()
     std::cout << " -----------------------------------------------------" << std::endl << std::endl;
 #endif
 
-    const int ORDER = 8;
+    const int ORDER = 10;
     std::string dir = getDirByOrder(ORDER);
 
     std::cout << " USING MATRIX NUMEROV METHOD OF THE ORDER = " << ORDER << std::endl;
@@ -125,26 +124,25 @@ int main()
     int niter = 3; // number of iterations to reduce the step
 
     std::vector<std::vector<Eigenvalue>> eigenvalues;
-    for ( int iter = 0; iter < niter; ++iter )
+    for ( int iter = 0; iter < niter; ++iter, n *= 2 )
     {
-        parameters.setGridParameters( leftTurningPoint, rightTurningPoint, h );
+        parameters.setGridParameters( leftTurningPoint, rightTurningPoint, n );
         std::vector<Eigenvalue> eigs = computeEigenvalues( generalizedMatrixNumerov, N );
         eigenvalues.push_back( eigs );
-        h /= 2.0;
     }
 
-    const int REORDER = 4; //ORDER - 2;
+    const int REORDER = ORDER - 2;
 
     std::vector<double> first_extrapolation = FREV( eigenvalues[1], eigenvalues[2], REORDER );
     std::vector<double> second_extrapolation = SREV( eigenvalues[0], eigenvalues[1], eigenvalues[2], REORDER );
 
     std::cout << std::setprecision(15);
     std::cout << "h/4 \t 1st extrapolation \t 2nd extrapolation" << std::endl;
-    for ( int n = 0; n < N; ++n ) {
-        double exact = n + 0.5;
-        std::cout << std::abs(exact - eigenvalues.back()[n].get_value()) << " \t " <<
-                     std::abs(exact - first_extrapolation[n]) << " \t " <<
-                     std::abs(exact - second_extrapolation[n]) << std::endl;
+    for ( int k = 0; k < N; ++k ) {
+        double exact = k + 0.5;
+        std::cout << std::abs(exact - eigenvalues.back()[k].get_value()) << " \t " <<
+                     std::abs(exact - first_extrapolation[k]) << " \t " <<
+                     std::abs(exact - second_extrapolation[k]) << std::endl;
     }
 
     return 0;

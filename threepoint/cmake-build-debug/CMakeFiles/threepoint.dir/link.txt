@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/threepoint.dir/main.cpp.o  -o threepoint ../../lib/libGMN.a /usr/lib/x86_64-linux-gnu/libgsl.so /usr/lib/x86_64-linux-gnu/libgslcblas.so 

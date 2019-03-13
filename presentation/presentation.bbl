@@ -49,5 +49,70 @@
   Transfer}
     \field{year}{1992}
   \endentry
+
+  \entry{kreiss1972}{article}{}
+    \name{author}{1}{}{%
+      {{hash=KHO}{%
+         family={Kreiss},
+         familyi={K\bibinitperiod},
+         given={Heinz-Otto},
+         giveni={H\bibinitperiod-O\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{KHO1}
+    \strng{fullhash}{KHO1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{K}
+    \field{sortinithash}{K}
+    \field{number}{119}
+    \field{pages}{605\bibrangedash 624}
+    \field{title}{Difference approximations for boundary and eigenvalue
+  problems for ordinary differential equations}
+    \field{volume}{26}
+    \field{journaltitle}{Mathematics of Computation}
+    \field{year}{1972}
+  \endentry
+
+  \entry{paine1981}{article}{}
+    \name{author}{3}{}{%
+      {{hash=PJW}{%
+         family={Paine},
+         familyi={P\bibinitperiod},
+         given={John\bibnamedelima W},
+         giveni={J\bibinitperiod\bibinitdelim W\bibinitperiod},
+      }}%
+      {{hash=dHFR}{%
+         prefix={de},
+         prefixi={d\bibinitperiod},
+         family={Hoog},
+         familyi={H\bibinitperiod},
+         given={Frank\bibnamedelima R},
+         giveni={F\bibinitperiod\bibinitdelim R\bibinitperiod},
+      }}%
+      {{hash=ARS}{%
+         family={Anderssen},
+         familyi={A\bibinitperiod},
+         given={Robert\bibnamedelima S},
+         giveni={R\bibinitperiod\bibinitdelim S\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer}%
+    }
+    \strng{namehash}{PJWHFRdARS1}
+    \strng{fullhash}{PJWHFRdARS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{P}
+    \field{sortinithash}{P}
+    \field{number}{2}
+    \field{pages}{123\bibrangedash 139}
+    \field{title}{On the correction of finite difference eigenvalue
+  approximations for Sturm-Liouville problems}
+    \field{volume}{26}
+    \field{journaltitle}{Computing}
+    \field{year}{1981}
+  \endentry
 \enddatalist
 \endinput

@@ -8,9 +8,11 @@
 % русский текст в формулах?
 \usepackage{mathtext}
 
+\usepackage{booktabs} % toprule/bottomrule
+
 % русский
 \usepackage[T2A]{fontenc}
-\usepackage[english]{babel}
+\usepackage[russian]{babel}
 \usepackage[utf8]{inputenc}
 
 % рисунки
@@ -24,6 +26,9 @@
 
 \usepackage{physics}
 \usepackage{braket}
+
+\usepackage{siunitx}
+\sisetup{output-exponent-marker=\ensuremath{\mathrm{e}}}
 
 % ?
 \setbeamertemplate{frametitle}[default][center]
@@ -147,8 +152,9 @@
     \begin{block}{}
         Матричная формулировка метода Нумерова 
         \begin{gather}
-            -\frac{\hbar^2}{2 m} \bbA \psi + \bbB \bbV \psi = E \bbB \psi, \\
-            \psi = \lsq \psi_i, i = 1 \dots N \rsq^\top, \quad \bbV = \text{diag} \left\{ V_i, i = 1 \dots N \right\} \\
+            -\frac{\hbar^2}{2 m} \bbA \psi + \bbB \bbV \psi = E \bbB \psi, \quad \psi(a) = 0, \psi(b) = 0 \\
+            a = x_0 < x_1 < \dots < x_{n-1} < x_n = b, \quad h = \frac{b - a}{n} \\
+            \psi = \lsq \psi_i, i = 1 \dots n - 1 \rsq^\top, \quad \bbV = \text{diag} \left\{ V_i, i = 1 \dots n - 1 \right\} \\
             \bbA = \frac{1}{h^2} 
             \begin{bmatrix}
                 -2 & 1 & 0 & 0 & \dots \\
@@ -173,9 +179,9 @@
 \begin{frame}{Обобщенный метод Нумерова}
     \begin{block}{}
         \vspace*{-0.5cm}
-        Для получения метода порядка $N = 2r + 2$, выразим вторую производную $\psip{2}$ до порядка $N$ 
+        Для получения метода порядка $N = 2r + 2$, выразим вторую производную $\psip{2}$ с точностью до порядка $N + 2$ 
         \begin{gather}
-            \psi(x+h) + \psi(x-h) = 2 \psi(x) + \sum_{k=1}^{r+1} \frac{ 2h^{2k} }{ (2k)! } h^{2k} + O(h^{2r+4}), \\
+            \psi(x+h) + \psi(x-h) = 2 \psi(x) + \sum_{k=1}^{r+1} \frac{ 2h^{2k} }{ (2k)! } \psip{2k} + O(h^{2r+4}), \\
             \psip{2} = \frac{ \psi(x+h) + \psi(x-h) - 2\psi(x) }{ h^2 }  - \sum_{k=0}^{r-1} \frac{ 2h^{2k+2} }{ (2k+4)! } \psip{2k+4} + O(h^{2r+2}). \notag
         \end{gather}
         Неизвестными являются производные $\lc \psip{2k + 4}, k = 0 \dots r-1 \rc$, которые мы найдем из системы линейных уравнений
@@ -238,9 +244,75 @@
     \end{block}
 \end{frame}
 
-\begin{frame}{Метод Нумерова и трехточечная формула}
+\begin{frame}{Экстраполяция по Ричардсону}
+    \vspace*{-0.5cm}
+    \begin{block}{\enquote{Базельская задача}}
+        \vspace*{-0.5cm}
+        \begin{gather}
+            \frac{\pi^2}{6} = \sum_{k=1}^\infty \frac{1}{k^2}, \quad S_N = \sum_{k=1}^N \frac{1}{k^2}
+        \end{gather}
+        Предположим следующее асимптотическое для частичных сумм ряда
+        \begin{gather}
+            S_N \sim S + \frac{a}{N} + \frac{b}{N^2} + \frac{c}{N^3} + O(N^{-4}) 
+        \end{gather}
+        Рассмотрим асимптотическое разложение для двух последовательных частичных сумм
+        \begin{gather}
+            S_N \sim S + \frac{a}{N} + \frac{b}{N^2} + O(N^{-3}) \\
+            S_{N+1} \sim S + \frac{a}{N+1} + \frac{b}{(N+1)^2} + O(N^{-3})
+        \end{gather}
+        Скомбинируем выражения, чтобы избавить от линейного члена по $1/N$
+        \begin{gather}
+            R_1 \equiv (N+1) S_{N+1} - N S_N \sim S - \frac{b}{N(N+1)} + O(N^{-2}) \sim S + O(N^{-2}) 
+        \end{gather}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Экстраполяция по Ричардсону}
+    \vspace*{-0.5cm}
+    \begin{block}{\enquote{Базельская задача}}
+        \vspace*{-0.5cm}
+        \begin{gather}
+            \sum_{k=1}^\infty \frac{1}{k^2} = \frac{\pi^2}{6} \approx 1.644934066848 \notag 
+        \end{gather}
+
+        \vspace*{-0.5cm}
+        \begin{table}[H]
+            \centering
+            \begin{tabular}{ccccc}
+                \toprule
+                $N$ & $10^{3}$ & $10^{4}$ & $10^{5}$ & $10^{6}$ \\
+                $S_N$ & $1.643934566682$ & $1.644834071848$ & $1.644924066898$ &  $\color{red}{1.644933}\color{black}{066849}$ \\
+                \bottomrule
+            \end{tabular}
+        \end{table}
+        \vspace*{-0.5cm}
+        
+        \begin{gather}
+            R_1 \equiv (N+1) S_{N+1} - N S_N, \quad R_2 \equiv \frac{1}{2} \lsq (N+2)^2 S_{N+2} - 2(N+1)^2 S_{N+1} + N^2 S_N \rsq \notag
+        \end{gather}
+
+        \vspace*{-0.5cm}
+        \begin{table}[H]
+            \centering
+            \begin{tabular}{ccccc}
+                \toprule
+                $N$ & $S_N$ & $R_2$ & $R_4$ & $R_6$ \\
+                \midrule
+$1$  & $1.000000000000$ & $1.625000000000$ & $1.644965277778$ & $1.644935185185$ \\  
+$5$  & $1.463611111111$ & $1.644166666667$ & $1.644935811130$ & $1.644934060147$ \\
+$10$ & $1.549767731167$ & $1.644809053481$ & $1.644934195433$ & $1.644934066526$ \\
+$15$ & $1.580440283445$ & $1.644893408445$ & $1.644934089858$ & $1.644934066812$ \\
+$20$ & $1.596163243913$ & $1.644916078380$ & $1.644934073240$ & $1.644934066841$ \\ 
+$25$ & $1.605723403591$ & $1.644924587023$ & $1.644934069153$ & $\color{red}{1.64493406684}\color{black}{5}$ \\
+                \bottomrule
+            \end{tabular}
+        \end{table}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Трехточечная оценка второй производной}
     \begin{block}{}
-        Использование трехточечной формулы для второй производной $\psip{2}$ приводит к матричной задаче, похожей на Нумеровскую \footfullcite{goorvitch1992}
+        Использование трехточечной формулы для оценки второй производной $\psip{2}$ приводит к матричной задаче, похожей на Нумеровскую \footfullcite{goorvitch1992}
         \begin{gather}
             -\frac{ \hbar^2 }{ 2m } \psip{2} + V(x) \psi(x) = E \psi(x), \\
             \psip{2} = \frac{\psi(x+h) + \psi(x-h) - 2\psi(x)}{h^2} + O(h^2) \\
@@ -253,6 +325,71 @@
                 \vdots & \vdots & \vdots & \vdots & \ddots
             \end{bmatrix}
         \end{gather}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Оценка второй производной конечными разностями}
+    \begin{block}{}
+        Если $V \in C^{(2m+1)}[a, b]$, то \footfullcite{kreiss1972} 
+        \begin{gather}
+            \lambda_k(h) = \lambda_k + \sum_{l=1}^{m} c_k^l h^{2l} + O(h^{2m+1}), \\
+            \phi_k(h) = \phi_k + \sum_{l=1}^{m} \xi_k^l h^{2l} + O(h^{2m+1}),
+        \end{gather}
+        где $\lc c_k^l \rc$, $\lc \xi_k^l \rc$ не зависят от $h$.
+        \begin{enumerate}
+            \item Экстраполяция по Ричардсону
+            \item Алгоритм Эйткена-Невилла 
+        \end{enumerate}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Экстраполяция по Ричардсону}
+    \begin{block}{}
+        \vspace*{-1cm}
+        Рассмотрим асимптотическое разложение $j$-ого собственного значения по длине шага $h$  
+        \begin{gather}
+            E_j(h) \sim E_j + k_0 h^N + k_1 h^{N+2} + O(h^{N+4})
+        \end{gather}
+        Используем последовательное уменьшение шага, чтобы избавиться от ведущих членов в этом разложении
+        \begin{gather}
+            \bar{E}_j^1(h) \sim E_j + \tilde{k}_1 h^{N+2} + O(h^{N+4}), \\
+            \bar{E}_j^2(h) \sim E_j + O(h^{N+4}),
+        \end{gather}
+        где
+        \begin{gather}
+            \hspace*{-0.3cm}
+            \bar{E}_j^1 = \frac{2^N E_j(\frac{h}{2}) - E_j(h)}{2^N - 1}, \quad 
+            \bar{E}_j^2 = E_j(\frac{h}{4}) + \frac{(5 \cdot 2^N - 1) E_j(\frac{h}{4}) - 5\cdot 2^N E_j(\frac{h}{2}) + E_j(h)}{(2^{N+2} - 1) \cdot (2^N - 1)} \notag
+        \end{gather}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Экстраполяция по Ричардсону}
+    \begin{block}{Частица в потенциальном ящике}
+        \begin{gather}
+            -\psi^{(2)} + Ey = 0, \quad y(0) = 0, \quad y(\pi) = 0.
+        \end{gather}
+
+        \begin{table}[H]
+            \centering
+            \caption{Матричный метод Нумерова 4-го порядка, $h \approx 0.0785, n = 40$}
+            \begin{tabular}{cccccc}
+                \toprule
+                $E_j$ & $\Delta E_j(h)$ & $\Delta E_j(h/2)$ & $\Delta E_j(h/4)$ & $\Delta \bar{E}_j^1$ & $\Delta \bar{E}_j^2$ \\
+                \midrule
+                $1$ & $\num{1.586e-07}$ & $\num{9.910e-09}$ & $\num{6.187e-10}$ & $\num{6.837e-13}$ & $\num{6.632e-13}$ \\
+                $4$ & $\num{1.016e-05}$ & $\num{6.343e-07}$ & $\num{3.964e-08}$ & $\num{7.529e-12}$ & $\num{2.163e-13}$ \\
+                $9$ & $\num{1.158e-04}$ & $\num{7.228e-06}$ & $\num{4.515e-07}$ & $\num{1.988e-10}$ & $\num{8.669e-13}$ \\
+               $16$ & $\num{6.519e-04}$ & $\num{4.063e-05}$ & $\num{2.537e-06}$ & $\num{1.983e-09}$ & $\num{1.380e-11}$ \\
+               $25$ & $\num{2.492e-03}$ & $\num{1.551e-04}$ & $\num{9.680e-06}$ & $\num{1.180e-08}$ & $\num{1.244e-10}$ \\
+                \bottomrule
+            \end{tabular}
+        \end{table}
+    \end{block}
+\end{frame}
+\begin{frame}{Трехточечная оценка второй производной}
+    \begin{block}{}
+        Набор собственных значений $\lc \lambda_k \rc_{k=1}^n$ мы приближаем набором собственных значений $\lc \lambda_k^{(N)} \rc_{k=1}^{n}$ матрицы $\bbH$ размерности $N$. Если потенциальная энергия $V \in C^{(2)}[a, b]$, то разница ведет себя как $\vert \lambda_k - \lambda_k^{(N)} \vert = O( k^4 h^2 )$ \footfullcite{paine1981}. 
     \end{block}
 \end{frame}
 
