@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="generalized_matrix_numerov"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j6 -f &quot;/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j6 -f &quot;/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j6 -f &quot;/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j6 -f &quot;/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install/strip">
+				<Option working_dir="/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j6 -f &quot;/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 install/strip"/>
+					<CompileFile command="/usr/bin/make -j6 -f &quot;/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j6 -f &quot;/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j6 -f &quot;/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install/local">
+				<Option working_dir="/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j6 -f &quot;/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 install/local"/>
+					<CompileFile command="/usr/bin/make -j6 -f &quot;/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j6 -f &quot;/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j6 -f &quot;/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="GMN">
+				<Option output="/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug/libGMN.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/include/eigen3"/>
+					<Add directory="/home/artfin/Desktop/repos/spectra-0.7.0/include"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j6 -f &quot;/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 GMN"/>
+					<CompileFile command="/usr/bin/make -j6 -f &quot;/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j6 -f &quot;/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j6 -f &quot;/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="GMN/fast">
+				<Option output="/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug/libGMN.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/include/eigen3"/>
+					<Add directory="/home/artfin/Desktop/repos/spectra-0.7.0/include"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j6 -f &quot;/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 GMN/fast"/>
+					<CompileFile command="/usr/bin/make -j6 -f &quot;/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j6 -f &quot;/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j6 -f &quot;/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j6 -f &quot;/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j6 -f &quot;/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j6 -f &quot;/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j6 -f &quot;/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="gmn">
+				<Option output="/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug/gmn" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/include/eigen3"/>
+					<Add directory="/home/artfin/Desktop/repos/spectra-0.7.0/include"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j6 -f &quot;/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 gmn"/>
+					<CompileFile command="/usr/bin/make -j6 -f &quot;/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j6 -f &quot;/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j6 -f &quot;/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="gmn/fast">
+				<Option output="/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug/gmn" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/include/eigen3"/>
+					<Add directory="/home/artfin/Desktop/repos/spectra-0.7.0/include"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j6 -f &quot;/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 gmn/fast"/>
+					<CompileFile command="/usr/bin/make -j6 -f &quot;/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j6 -f &quot;/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j6 -f &quot;/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j6 -f &quot;/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j6 -f &quot;/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j6 -f &quot;/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j6 -f &quot;/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="list_install_components">
+				<Option working_dir="/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j6 -f &quot;/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 list_install_components"/>
+					<CompileFile command="/usr/bin/make -j6 -f &quot;/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j6 -f &quot;/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j6 -f &quot;/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install">
+				<Option working_dir="/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j6 -f &quot;/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 install"/>
+					<CompileFile command="/usr/bin/make -j6 -f &quot;/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j6 -f &quot;/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j6 -f &quot;/home/artfin/Desktop/repos/NumerovProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/artfin/Desktop/repos/NumerovProject/lib/eigenvalue.cpp">
+			<Option target="GMN"/>
+		</Unit>
+		<Unit filename="/home/artfin/Desktop/repos/NumerovProject/lib/eigenvalue.h">
+			<Option target="GMN"/>
+		</Unit>
+		<Unit filename="/home/artfin/Desktop/repos/NumerovProject/lib/filereader.cpp">
+			<Option target="GMN"/>
+		</Unit>
+		<Unit filename="/home/artfin/Desktop/repos/NumerovProject/lib/filereader.h">
+			<Option target="GMN"/>
+		</Unit>
+		<Unit filename="/home/artfin/Desktop/repos/NumerovProject/lib/generalizedmatrixnumerov.cpp">
+			<Option target="GMN"/>
+		</Unit>
+		<Unit filename="/home/artfin/Desktop/repos/NumerovProject/lib/generalizedmatrixnumerov.h">
+			<Option target="GMN"/>
+		</Unit>
+		<Unit filename="/home/artfin/Desktop/repos/NumerovProject/lib/main.cpp">
+			<Option target="GMN"/>
+			<Option target="gmn"/>
+		</Unit>
+		<Unit filename="/home/artfin/Desktop/repos/NumerovProject/lib/matrixreader.cpp">
+			<Option target="GMN"/>
+			<Option target="gmn"/>
+		</Unit>
+		<Unit filename="/home/artfin/Desktop/repos/NumerovProject/lib/matrixreader.h">
+			<Option target="GMN"/>
+			<Option target="gmn"/>
+		</Unit>
+		<Unit filename="/home/artfin/Desktop/repos/NumerovProject/lib/parameters.cpp">
+			<Option target="GMN"/>
+		</Unit>
+		<Unit filename="/home/artfin/Desktop/repos/NumerovProject/lib/parameters.h">
+			<Option target="GMN"/>
+		</Unit>
+		<Unit filename="/home/artfin/Desktop/repos/NumerovProject/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

@@ -128,8 +128,9 @@ int main()
     double leftTurningPoint = 0.0;
     double rightTurningPoint = M_PI;
     double L = rightTurningPoint - leftTurningPoint;
-    int n = 40;
+    int n = 7;
     double h = L / n;
+    std::cout << "h: " << h << std::endl;
     parameters.setGridParameters( leftTurningPoint, rightTurningPoint, n );
 
 #ifdef DEBUG_SHOW_PARAMETERS
@@ -145,8 +146,13 @@ int main()
     std::cout << " -----------------------------------------------------" << std::endl << std::endl;
 #endif
 
-    std::string dir = "../../2order_central_difference/";
-    //std::string dir = "../../4order/";
+    //std::string dir = "../../2order_central_difference/";
+    //const int ORDER = 12;
+    //std::string dir = "../../" + std::to_string(ORDER) + "order_central_difference/";
+    //std::string dir = "../../12order_central_difference/";
+    //std::string dir = "../../pade_3_3/";
+    //std::string dir = "../../4order_central_difference/";
+    std::string dir = "../../8order_corrected/";
 
     const int REORDER = 2;
     std::cout << " USING MATRIX 2ND ORDER CENTRAL DIFFERENCE METHOD" << std::endl;
@@ -154,11 +160,37 @@ int main()
     GeneralizedMatrixNumerov generalizedMatrixNumerov( &parameters, dir );
 
     int N = 5; // number of eigenvalues to compute
+    //std::vector<Eigenvalue> eigs = computeEigenvalues( generalizedMatrixNumerov, N );
     std::vector<Eigenvalue> eigs = computeEigenvalues( generalizedMatrixNumerov, N );
+
+    Eigen::MatrixXd const& A = generalizedMatrixNumerov.get_A();
+    std::cout << "A: " << std::endl << A << std::endl;
 
     std::vector<double> exact = { 1.0, 4.0, 9.0, 16.0, 25.0 };
     //std::vector<double> exact = { 11.5424, 41.1867, 90.5404, 159.6296, 248.4569 };
 
+    //std::ofstream ofs("../12order_diff_k.txt");
+    for ( int k = 0; k < n - 1; ++k ) {
+        std::cout << (k+1)*(k+1) << " " << eigs[k].get_value() << std::endl;
+        //std::cout << k+1 << " " << std::abs(eigs[k].get_value() - (k+1)*(k+1)) << std::endl;
+    }
+
+    //std::ofstream ofs("../" + std::to_string(ORDER) + "order_central_diff_h.txt");
+
+    std::ofstream ofs("../8order_corrected_diff_h.txt");
+    ofs << std::fixed << std::setprecision(15);
+
+    for ( int k = 10; k < 400; k += 10 ) {
+        parameters.setGridParameters( leftTurningPoint, rightTurningPoint, k );
+        std::vector<Eigenvalue> eigs = computeEigenvalues( generalizedMatrixNumerov, N );
+        double diff = std::abs(eigs[0].get_value() - exact[0]);
+        double h = L / k;
+
+        std::cout << h << " " << diff << std::endl;
+        ofs << h << " " << diff << std::endl;
+    }
+
+    /*
     parameters.setGridParameters( leftTurningPoint, rightTurningPoint, 2*n );
     std::vector<Eigenvalue> eigs2 = computeEigenvalues( generalizedMatrixNumerov, N );
 
@@ -169,12 +201,14 @@ int main()
     std::vector<double> sre = SREV( eigs, eigs2, eigs3, REORDER );
 
     std::cout << std::fixed << std::setprecision(15);
+    */
     /*
     for ( size_t k = 0; k < eigs.size(); ++k ) {
         std::cout << std::abs(eigs[k].get_value() -exact[k]) << " " << std::abs(eigs2[k].get_value()-exact[k]) << " " <<
                     std::abs(fre[k] - exact[k]) << std::endl;
     }
     */
+    /*
     std::cout << std::scientific << std::setprecision(3);
     for ( size_t k = 0; k < eigs.size(); ++k ) {
         std::cout << std::abs(eigs[k].get_value() - exact[k]) << " "
@@ -183,6 +217,7 @@ int main()
                   << std::abs(fre[k] - exact[k]) << " "
                   << std::abs(sre[k] - exact[k]) << std::endl;
     }
+    */
 
     return 0;
 }

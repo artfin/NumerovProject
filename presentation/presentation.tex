@@ -62,13 +62,15 @@
 \newcommand{\fx}[0]{f(x)}
 \newcommand{\psix}[0]{\psi(x)}
 
+\newcommand{\hD}{\hat{D}}
+
 % slightly modifying gather environment
 \let\oldgather\gather
 \def\gather{\vspace*{-0.2cm}\oldgather}
 
 \begin{document}
 
-\begin{frame}{\center\mytitle{\Large Расчет классических и квантовых статистических сумм слабосвязанных систем}}
+\begin{frame}{\center\mytitle{\Large Конечно-разностные матричные методы. \\ Расчет колебательно-вращательных уровней в двухатомной молекуле. \\ Сравнение классической и квантовой статистических сумм.}}
 \begin{table}[]
 \flushright
 \begin{tabular}{r}
@@ -79,20 +81,28 @@
 \center
 \today
 \end{frame}
-   
+
 \begin{frame}{Структура доклада}
     \begin{block}{}
         \begin{itemize}
-            \item Два основных подхода к одномерной задаче Штурма-Лиувилля \\
+            \item Основные подходы к нахождению колебательно-вращательных уровней в двухатомной молекуле \\ 
             \item Метод Нумерова и его матричный аналог \\
+            \item Метод Нумерова и трехточечная формула. Аналитические результаты \\ 
             \item Обобщенный матричный метод Нумерова \\
-            \item Метод Нумерова и трехточечная формула. Асимптотические разложения для собственных значений \\
             \item Экстраполяция Ричардсона для собственных значений \\
-            \item Расчет колебательно-вращательных уровней в потенциале Морзе \\
-            \item Классическая статистическая сумма \\
-            \item Сравнение статсумм 
+            \item Альтернативный способ получения матричных задач. \\
+            \item Расчет колебательно-вращательных уровней в потенциале Морзе. Сравнение с BOUND. \\
+            \item Расчет статистических сумм \\
         \end{itemize}
     \end{block}
+\end{frame}
+
+\begin{frame}{Основные подходы к одномерному уравнению Шредингера}
+    \centering
+   
+    \begin{figure}[H]
+        \includegraphics[width=\linewidth]{./pictures/diagram.png}
+    \end{figure}
 \end{frame}
 
 \begin{frame}{Метод Нумерова и его матричный аналог}
@@ -176,7 +186,46 @@
     \end{block}
 \end{frame}
 
-\begin{frame}{Обобщенный метод Нумерова}
+\begin{frame}{Трехточечная оценка второй производной}
+    \begin{block}{}
+        Использование трехточечной формулы для оценки второй производной $\psip{2}$ приводит к матричной задаче, похожей на Нумеровскую \footfullcite{goorvitch1992}
+        \begin{gather}
+            -\frac{ \hbar^2 }{ 2m } \psip{2} + V(x) \psi(x) = E \psi(x), \\
+            \psip{2} = \frac{\psi(x+h) + \psi(x-h) - 2\psi(x)}{h^2} + O(h^2) \\
+            \bbH = - \frac{\hbar^2}{2m} \bbA + \bbV \\
+            \bbA = \frac{1}{h^2} 
+            \begin{bmatrix}
+                -2 & 1 & 0 & 0 & \dots \\
+                1 & -2 & 1 & 0 & \dots \\
+                0 & 1 & -2 & 1 & \dots \\
+                \vdots & \vdots & \vdots & \vdots & \ddots
+            \end{bmatrix}
+        \end{gather}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Трехточечная оценка и метод Нумерова}
+    \begin{block}{}
+        Набор собственных значений $\lc \lambda_k \rc_{k=1}^n$ мы приближаем набором собственных значений $\lc \lambda_k^{(N)} \rc_{k=1}^{n}$ матрицы $\bbH$ размерности $N$. \par 
+        Если потенциальная энергия $V \in C^{(2)}[a, b]$, то разница между приближенным $k$-ым собственным значением  по матричной трехточечной формуле и его точным значением ведет себя как $\vert \lambda_k - \lambda_k^{(N)} \vert = O( k^4 h^2 )$ \footfullcite{paine1981}. При $V \equiv 0$:
+        \begin{gather}
+            \vert \lambda_k - \lambda_k^{(N)} \vert = k^2 - \frac{4}{h^2} \sin^2 \lb \frac{k h}{2} \rb = -\frac{1}{12} h^2 k^4 + \frac{1}{360} h^4 k^6 + O(h^6 k^8)
+        \end{gather}
+        Если потенциальная энергия $V \in C^{(4)}[a, b]$, то та же разница для матричного метода Нумерова ведет себя как $\vert \lambda_k - \lambda_k^{(N)} \vert = O(h^4)$ \footfullcite{andrew1986}.
+    \end{block}
+\end{frame}
+
+\begin{frame}{Трехточечная оценка и метод Нумерова}
+    \vspace*{-0.35cm}
+    \begin{block}{Гармонический осциллятор, нулевой уровень, аппроксимация порядка по шагу $h$, $N = 40-400$}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.75\linewidth]{./pictures/4numerov_vs_3point-crop.pdf}
+        \end{figure}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Обобщенный метод Нумерова \footfullcite{dongjiao2014}}
     \begin{block}{}
         \vspace*{-0.5cm}
         Для получения метода порядка $N = 2r + 2$, выразим вторую производную $\psip{2}$ с точностью до порядка $N + 2$ 
@@ -241,6 +290,33 @@
                 \vdots & \vdots & \vdots & \vdots & \vdots & \ddots
             \end{bmatrix}
         \end{gather}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Асимптотика по размеру шага}
+    \vspace*{-0.5cm}
+    \begin{block}{Гармонический осциллятор, нулевое состояние, $N=40-400$}
+        \begin{figure}[H]
+            \includegraphics[width=0.8\linewidth]{./pictures/diff_h-crop.pdf}
+        \end{figure}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Асимптотика по номеру состояния}
+    \vspace*{-0.5cm}
+    \begin{block}{Гармонический осциллятор, $n = 400$}
+        \begin{figure}[H]
+            \includegraphics[width=0.8\linewidth]{./pictures/diff_k-crop.pdf}
+        \end{figure}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Асимптотика по номеру состояния}
+    \vspace*{-0.5cm}
+    \begin{block}{Гармонический осциллятор, $n = 400$}
+        \begin{figure}[H]
+            \includegraphics[width=0.8\linewidth]{./pictures/diff_k_nonlinear-crop.pdf}
+        \end{figure}
     \end{block}
 \end{frame}
 
@@ -310,40 +386,8 @@ $25$ & $1.605723403591$ & $1.644924587023$ & $1.644934069153$ & $\color{red}{1.6
     \end{block}
 \end{frame}
 
-\begin{frame}{Трехточечная оценка второй производной}
-    \begin{block}{}
-        Использование трехточечной формулы для оценки второй производной $\psip{2}$ приводит к матричной задаче, похожей на Нумеровскую \footfullcite{goorvitch1992}
-        \begin{gather}
-            -\frac{ \hbar^2 }{ 2m } \psip{2} + V(x) \psi(x) = E \psi(x), \\
-            \psip{2} = \frac{\psi(x+h) + \psi(x-h) - 2\psi(x)}{h^2} + O(h^2) \\
-            \bbH = - \frac{\hbar^2}{2m} \bbA + \bbV \\
-            \bbA = \frac{1}{h^2} 
-            \begin{bmatrix}
-                -2 & 1 & 0 & 0 & \dots \\
-                1 & -2 & 1 & 0 & \dots \\
-                0 & 1 & -2 & 1 & \dots \\
-                \vdots & \vdots & \vdots & \vdots & \ddots
-            \end{bmatrix}
-        \end{gather}
-    \end{block}
-\end{frame}
 
-\begin{frame}{Оценка второй производной конечными разностями}
-    \begin{block}{}
-        Если $V \in C^{(2m+1)}[a, b]$, то \footfullcite{kreiss1972} 
-        \begin{gather}
-            \lambda_k(h) = \lambda_k + \sum_{l=1}^{m} c_k^l h^{2l} + O(h^{2m+1}), \\
-            \phi_k(h) = \phi_k + \sum_{l=1}^{m} \xi_k^l h^{2l} + O(h^{2m+1}),
-        \end{gather}
-        где $\lc c_k^l \rc$, $\lc \xi_k^l \rc$ не зависят от $h$.
-        \begin{enumerate}
-            \item Экстраполяция по Ричардсону
-            \item Алгоритм Эйткена-Невилла 
-        \end{enumerate}
-    \end{block}
-\end{frame}
-
-\begin{frame}{Экстраполяция по Ричардсону}
+\begin{frame}{Экстраполяция собственных значений} 
     \begin{block}{}
         \vspace*{-1cm}
         Рассмотрим асимптотическое разложение $j$-ого собственного значения по длине шага $h$  
@@ -387,9 +431,237 @@ $25$ & $1.605723403591$ & $1.644924587023$ & $1.644934069153$ & $\color{red}{1.6
         \end{table}
     \end{block}
 \end{frame}
-\begin{frame}{Трехточечная оценка второй производной}
+
+
+\begin{frame}{Подход с центральным разностным оператором \footfullcite{guardiola1982}}
+    \vspace*{-0.5cm}
     \begin{block}{}
-        Набор собственных значений $\lc \lambda_k \rc_{k=1}^n$ мы приближаем набором собственных значений $\lc \lambda_k^{(N)} \rc_{k=1}^{n}$ матрицы $\bbH$ размерности $N$. Если потенциальная энергия $V \in C^{(2)}[a, b]$, то разница ведет себя как $\vert \lambda_k - \lambda_k^{(N)} \vert = O( k^4 h^2 )$ \footfullcite{paine1981}. 
+        \begin{gather}
+            f(x_0 + (n+1)h) = \lb 1 + h \frac{d}{dx} + \frac{h^2}{2!} \frac{d^2}{dx^2} + \dots \rb f(x_0 + nh), \\ 
+            f_{n+1} = \hat{T} f_n, \quad \hat{T} = \exp \lb h \hat{D} \rb, 
+        \end{gather}
+        где $\displaystyle \hat{D} = \frac{d}{dx}$. Рассмотрим центральный разностный оператор и выразим его через оператор дифференцирования
+        \begin{gather}
+            \hat{\delta} f_n = f(x_0 + nh + h/2) - f(x_0 + nh - h/2), \\
+            \hat{\delta} = \exp \lb \frac{1}{2} h \hD \rb - \exp \lb -\frac{1}{2} h \hD \rb = 2 \sinh \lb \frac{1}{2} h \hD \rb.
+        \end{gather}
+        Обращая уравнение, получаем выражение для оператора $\hat{D}$ 
+        \begin{gather}
+            \hD = \frac{2}{h} \sinh^{-1} \lb \frac{\hat{\delta}}{2} \rb
+        \end{gather}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Подход с центральным разностным оператором}
+    \vspace*{-0.5cm}
+    \begin{block}{}
+        Разложение в ряд этого операторного соотношения содержит только четные степени $\hat{\delta}$
+        \begin{gather}
+            h^2 \hD^2 = \hat{\delta}^2 \lb 1 - \frac{1}{12} \hat{\delta}^2 + \frac{1}{90} \hat{\delta}^4 - \frac{1}{560} \hat{\delta}^6 + \frac{1}{3150} \hat{\delta}^8 + O(\hat{\delta}^{10}) \rb
+        \end{gather}
+        Это разложение может быть использовано в качестве генератора конечно-разностных схем.
+    \end{block}
+    \vspace*{-0.3cm}
+    \begin{block}{Паде аппроксиманты}
+        \vspace*{-0.5cm}
+        \begin{gather}
+            h^2 \hD^2 [1/0] = \hat{\delta}^2 + O(h^4) \\
+            h^2 \hD^2 [2/0] = \hat{\delta}^2 \lb 1 - \frac{1}{12} \hat{\delta}^2 \rb + O(h^6) \\
+            h^2 \hD^2 [1/1] = \dfrac{\hat{\delta}^2}{1 + \frac{1}{12} \hat{\delta}^2} + O(h^6) \\
+            h^2 \hD^2 [3/0] = \hat{\delta}^2 \lb 1 - \frac{1}{12} \hat{\delta}^2 + \frac{1}{90} \hat{\delta}^4 \rb + O(h^8)
+        \end{gather}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Диагональные элементы Паде таблицы \footfullcite{burke1980}}
+    \begin{block}{}
+        \begin{gather}
+            h^2 \hD^2 [1/1] = \dfrac{\hat{\delta}^2}{1 + \frac{1}{12} \hat{\delta}^2} + O(h^6) \\
+            h^2 \hD^2 [2/2] = \dfrac{\frac{31}{252} \hat{\delta}^4 + \hat{\delta}^2}{1 + \frac{13}{63} \hat{\delta}^2 + \frac{23}{3780} \hat{\delta}^4} + O(h^{10}) \\
+            h^2 \hD^2 [3/3] = \dfrac{\frac{7069}{625680} \hat{\delta}^6 + \frac{1289}{5214} \hat{\delta}^4 + \hat{\delta}^2}{1 + \frac{1149}{3476} \hat{\delta}^2 + \frac{619}{1459920} \hat{\delta}^6} + O(h^{14}) \\
+            h^2 \hD^2 [N/M] \sim O(h^{2(N+M+1)})
+        \end{gather}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Матричная задача и граничные условия}
+    \begin{block}{}
+        \vspace*{-0.5cm}
+        \begin{gather}
+            \hat{\delta}^2 = 
+            \begin{bmatrix}
+                -2 &  1 &        &        &        &    \\
+                1  & -2 &  1     &        &        &    \\
+                   &  1 & -2     & 1      &        &    \\
+                   &    & \ddots & \ddots & \ddots &    \\
+                   &    &        &   1    &  -2    &  1 \\
+                   &    &        &        &   1    & -2 \\
+            \end{bmatrix}, \quad 
+            \hat{\delta}^4 = 
+            \begin{bmatrix}
+                5 & -4     &  1     &        &        &        \\
+               -4 &  6     & -4     &  1     &        &        \\ 
+                1 & -4     &  6     & -4     & 1      &        \\
+                  &  1     & -4     &  6     & -4     & 1      \\ 
+                  &        & \ddots & \ddots & \ddots & \ddots \\  
+            \end{bmatrix} \notag
+        \end{gather}
+        Рассмотрим центральную разностную оценку четвертого порядка в точке $x = h$ ($f_0 = 0$)
+        \begin{gather}
+            \delta^4 f_1 = f_{-1} - 4 f_0 + 6 f_1 - 4f_2 + f_3, 
+        \end{gather}
+        Сравнивая с коэффициентами в матрице, получаем 
+        \begin{gather}
+            f_{-1} = - f_1.
+        \end{gather}
+        Обобщая, получаем антисимметричные соотношения вокруг граничных точек
+        \vspace*{-0.3cm}
+        \begin{gather}
+            f_{-p} = - f_{p}, \quad f_{N+p} = - f_{N-p}.
+        \end{gather}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Многоточечные оценки и обобщенный метод Нумерова}
+    \begin{block}{Матрицы 7-точечной оценки (аппроксиманты Паде [3/0])}
+        \begin{gather}
+            \bbA[3/0] = \frac{1}{ 180 h^2} 
+            \begin{bmatrix}
+               -463 & 268    & -27    & 2     &        &        &         & \\
+                268 & -490   & 270    & -27   & 2      &        &         & \\
+                -27 & 270    & -490   & 270   & -27    & 2      &         & \\
+                 2  & -27    & 270    &-490   & 270    & -27    & 2       & \\
+                    & \ddots & \ddots &\ddots & \ddots & \ddots &  \ddots & \ddots \\
+            \end{bmatrix}, \\
+            \bbB[3/0] = E^{N \times N}
+        \end{gather}
+    \end{block}
+    \begin{block}{Матрица обобщенного метода Нумерова порядка $N = 8$}
+        \begin{gather}
+            \bbA^{GMN} = \frac{1}{ 180 h^2} 
+            \begin{bmatrix}
+               -490 & 270    & -27    & 2     &        &        &         & \\
+                270 & -490   & 270    & -27   & 2      &        &         & \\
+                -27 & 270    & -490   & 270   & -27    & 2      &         & \\
+                 2  & -27    & 270    &-490   & 270    & -27    & 2       & \\
+                    & \ddots & \ddots &\ddots & \ddots & \ddots &  \ddots & \ddots \\
+            \end{bmatrix}
+        \end{gather}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Паде аппроксиманты и многоточечные оценки}
+    \vspace*{-0.3cm}
+    \begin{block}{Гармонический осциллятор, нулевое состояние, $N = 40-400$}
+        \begin{figure}
+            \includegraphics[width=0.8\linewidth]{./pictures/pade_vs_cs-crop.pdf}
+        \end{figure}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Паде аппроксиманты и многоточечные оценки}
+    \vspace*{-0.3cm}
+    \begin{block}{Гармонический осциллятор, $N = 400$}
+        \begin{figure}
+            \includegraphics[width=0.8\linewidth]{./pictures/pade_vs_cd_diff_k-crop.pdf}
+        \end{figure}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Колебательно-вращательная задача}
+    \vspace*{-0.5cm}
+    \begin{gather}
+        \lsq -\frac{\hbar^2}{2 \mu} \frac{d^2}{dR^2} + \frac{J(J+1)}{2 \mu R^2} + V(R) \rsq \psi_\text{vib} = E_\text{vib} \psi_\text{vib}, \\
+        V(R) = D_e \lb 1 - \exp \lb -a(R - R_e \rb \rb^2 
+    \end{gather}
+    \vspace*{-0.5cm}
+    \begin{figure}[H]
+        \includegraphics[width=0.7\linewidth]{./pictures/potential_profiles-crop.pdf}
+    \end{figure}
+\end{frame}
+
+\begin{frame}{Колебательные уровни в потенциале Морзе}
+    \begin{block}{}
+        \begin{table}[H]
+            \vspace*{-0.75cm}
+            \caption{Метод Паде [3/3], $J = 0$, $h = 0.25$, $x_0 = 4.0 a_0$, $x_N = 40.0 a_0$}
+            \vspace*{-0.25cm}
+            \begin{tabular}{ccccc}
+             \toprule
+             Exact & $\bar{E}_n^{(2)}$ & BOUND & $\Delta E_n$ & $\Delta \bar{E}_n^{(2)}$ \\
+             \midrule
+                -188.05704228 & -188.05704228 & -188.057042 & $\num{1.847e-12}$ & $\num{1.847e-12}$ \\
+                -165.27406801 & -165.27406801 & -165.274068 & $\num{2.245e-12}$ & $\num{2.018e-12}$ \\
+                -143.96168198 & -143.96168198 & -143.961682 & $\num{2.672e-12}$ & $\num{3.780e-12}$ \\
+                -124.11988418 & -124.11988418 & -124.119884 & $\num{4.533e-12}$ & $\num{9.948e-14}$ \\
+                -105.74867462 & -105.74867462 & -105.748674 & $\num{1.228e-11}$ & $\num{7.816e-13}$ \\
+                -88.84805329  & -88.84805329  & -88.8480533 & $\num{2.612e-11}$ & $\num{7.816e-13}$ \\
+                -73.41802020  & -73.41802020  & -73.4180202 & $\num{4.893e-11}$ & $\num{3.268e-13}$ \\ 
+                -59.45857534  & -59.45857534  & -59.4585753 & $\num{8.286e-11}$ & $\num{1.471e-12}$ \\ 
+                -46.96971872  & -46.96971872  & -46.9697187 & $\num{1.231e-10}$ & $\num{1.727e-12}$ \\
+                -35.95145033  & -35.95145033  & -35.9514503 & $\num{1.632e-10}$ & $\num{6.395e-14}$ \\
+                -26.40377018  & -26.40377018  & -26.4037702 & $\num{1.984e-10}$ & $\num{8.775e-13}$ \\
+                -18.32667827  & -18.32667827  & -18.3266782 & $\num{2.171e-10}$ & $\num{4.338e-12}$ \\
+                -11.72017459  & -11.72017459  & -11.7201746 & $\num{2.152e-10}$ & $\num{7.148e-12}$ \\ 
+                -6.58425914   & -6.58425914   & -6.58425915 & $\num{1.901e-10}$ & $\num{8.080e-12}$ \\
+                -2.91893193   & -2.91893193   & -2.91893193 & $\num{1.416e-10}$ & $\num{7.269e-12}$ \\
+                -0.72419296   & -0.72419296   & -0.72419296 & $\num{6.535e-10}$ & $\num{7.332e-10}$ \\
+            \bottomrule                        
+            \end{tabular}                      
+        \end{table}                            
+    \end{block}                                
+\end{frame}                                    
+
+\begin{frame}{Колебательно-вращательные уровни в потенциале Морзе}
+    \begin{block}{}
+        \begin{table}[H]
+            \vspace*{-0.75cm}
+            \caption{Метод Паде [3/3], $J = 5$, $h = 0.25$, $x_0 = 4.0 a_0$, $x_N = 40.0 a_0$}
+            \vspace*{-0.25cm}
+            \begin{tabular}{ccc}
+                \toprule
+                $\bar{E}_n^{(2)}$ & BOUND & $\vert E_n - \bar{E}_n^{(2)} \vert$ \\
+                \midrule
+ -186.01139971 & -186.0113997   &  $\num{2.842e-14}$ \\  
+ -163.31089584 & -163.3108959   &  $\num{1.990e-13}$ \\
+ -142.08261657 & -142.0826166   &  $\num{1.080e-12}$ \\
+ -122.32674155 & -122.3267416   &  $\num{3.922e-12}$ \\
+ -104.04348535 & -104.0434854   &  $\num{1.089e-11}$ \\
+ -87.23310751  & -87.23310753   &  $\num{2.458e-11}$ \\
+ -71.89592673  & -71.89592674   &  $\num{4.704e-11}$ \\
+ -58.03234134  & -58.03234136   &  $\num{7.856e-11}$ \\
+ -45.64286031  & -45.64286033   &  $\num{1.168e-10}$ \\
+ -34.72815189  & -34.72815190   &  $\num{1.565e-10}$ \\
+ -25.28912465  & -25.28912467   &  $\num{1.902e-10}$ \\
+ -17.32707277  & -17.32707278   &  $\num{2.100e-10}$ \\
+ -10.84396298  & -10.84396300   &  $\num{2.091e-10}$ \\
+ -5.84308905   & -5.843089058   &  $\num{1.836e-10}$ \\
+ -2.33094799   & -2.330948001   &  $\num{1.339e-10}$ \\
+ -0.32590561   & -0.3259056933  &  $\num{6.383e-11}$ \\
+            \bottomrule
+            \end{tabular}
+        \end{table}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Расчет статистических сумм}
+    \begin{block}{Классическая статсумма}
+        \begin{gather}
+            Q^\text{class}_\text{rovib}(T) = 4 \pi \left( \frac{2 \pi \mu k T}{h^2} \right)^{3/2} \int\limits_\sigma^\infty \frac{\displaystyle \gamma \left( \frac{3}{2}, -\frac{U}{kT} \right)}{\displaystyle \Gamma \left( \frac{3}{2} \right)} \exp \left( -\frac{U}{kT} \right) R^2 d R 
+        \end{gather}
+    \end{block}
+    \begin{block}{Квантовая статсумм}
+        \begin{gather}
+            Q^\text{q}_\text{rovib}(T) = \sum_{j} (2 J + 1) \exp \lb - \frac{c h E_j}{kT} \rb 
+        \end{gather}
+    \end{block}
+\end{frame}
+
+\begin{frame}{}
+    \begin{block}{Отношение статистических сумм}
+        \begin{figure}[H]
+            \includegraphics[width=0.8\linewidth]{./pictures/ratio-crop.pdf}
+        \end{figure}
     \end{block}
 \end{frame}
 

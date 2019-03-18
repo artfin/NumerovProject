@@ -1,0 +1,1 @@
+/usr/bin/c++  -O2 -Wall -Wextra -g   CMakeFiles/gmn.dir/lib/main.cpp.o CMakeFiles/gmn.dir/lib/matrixreader.cpp.o  -o gmn /usr/lib/x86_64-linux-gnu/libgsl.so /usr/lib/x86_64-linux-gnu/libgslcblas.so 

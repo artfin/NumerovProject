@@ -250,6 +250,33 @@ lib/generalizedmatrixnumerov.cpp.s:
 	$(MAKE) -f CMakeFiles/GMN.dir/build.make CMakeFiles/GMN.dir/lib/generalizedmatrixnumerov.cpp.s
 .PHONY : lib/generalizedmatrixnumerov.cpp.s
 
+lib/main.o: lib/main.cpp.o
+
+.PHONY : lib/main.o
+
+# target to build an object file
+lib/main.cpp.o:
+	$(MAKE) -f CMakeFiles/GMN.dir/build.make CMakeFiles/GMN.dir/lib/main.cpp.o
+.PHONY : lib/main.cpp.o
+
+lib/main.i: lib/main.cpp.i
+
+.PHONY : lib/main.i
+
+# target to preprocess a source file
+lib/main.cpp.i:
+	$(MAKE) -f CMakeFiles/GMN.dir/build.make CMakeFiles/GMN.dir/lib/main.cpp.i
+.PHONY : lib/main.cpp.i
+
+lib/main.s: lib/main.cpp.s
+
+.PHONY : lib/main.s
+
+# target to generate assembly for a file
+lib/main.cpp.s:
+	$(MAKE) -f CMakeFiles/GMN.dir/build.make CMakeFiles/GMN.dir/lib/main.cpp.s
+.PHONY : lib/main.cpp.s
+
 lib/matrixreader.o: lib/matrixreader.cpp.o
 
 .PHONY : lib/matrixreader.o
@@ -326,6 +353,9 @@ help:
 	@echo "... lib/generalizedmatrixnumerov.o"
 	@echo "... lib/generalizedmatrixnumerov.i"
 	@echo "... lib/generalizedmatrixnumerov.s"
+	@echo "... lib/main.o"
+	@echo "... lib/main.i"
+	@echo "... lib/main.s"
 	@echo "... lib/matrixreader.o"
 	@echo "... lib/matrixreader.i"
 	@echo "... lib/matrixreader.s"

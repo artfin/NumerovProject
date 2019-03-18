@@ -21,7 +21,9 @@ public:
     static int J;
     static const double De;
     static const double a;
+    static const double a_ang;
     static const double re;
+    static const double reang;
     static const double mu;
     static const double MU;
     static const double nu0;

@@ -17,6 +17,59 @@
 \endgroup
 
 \datalist[entry]{nty/global//global/global}
+  \entry{andrew1986}{article}{}
+    \name{author}{1}{}{%
+      {{hash=AA}{%
+         family={Andrew},
+         familyi={A\bibinitperiod},
+         given={AL},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer}%
+    }
+    \strng{namehash}{AA1}
+    \strng{fullhash}{AA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{A}
+    \field{sortinithash}{A}
+    \field{number}{2}
+    \field{pages}{251\bibrangedash 253}
+    \field{title}{The accuracy of Numerov's method for eigenvalues}
+    \field{volume}{26}
+    \field{journaltitle}{BIT Numerical Mathematics}
+    \field{year}{1986}
+  \endentry
+
+  \entry{burke1980}{article}{}
+    \name{author}{1}{}{%
+      {{hash=BEA}{%
+         family={Burke},
+         familyi={B\bibinitperiod},
+         given={Edward\bibnamedelima A},
+         giveni={E\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {AIP}%
+    }
+    \strng{namehash}{BEA1}
+    \strng{fullhash}{BEA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{number}{6}
+    \field{pages}{1366\bibrangedash 1369}
+    \field{title}{Extended Numerov method for the numerical solution of the
+  Hartree--Fock equations}
+    \field{volume}{21}
+    \field{journaltitle}{Journal of Mathematical Physics}
+    \field{year}{1980}
+  \endentry
+
   \entry{goorvitch1992}{article}{}
     \name{author}{2}{}{%
       {{hash=GD}{%
@@ -50,28 +103,37 @@
     \field{year}{1992}
   \endentry
 
-  \entry{kreiss1972}{article}{}
-    \name{author}{1}{}{%
-      {{hash=KHO}{%
-         family={Kreiss},
-         familyi={K\bibinitperiod},
-         given={Heinz-Otto},
-         giveni={H\bibinitperiod-O\bibinitperiod},
+  \entry{guardiola1982}{article}{}
+    \name{author}{2}{}{%
+      {{hash=GR}{%
+         family={Guardiola},
+         familyi={G\bibinitperiod},
+         given={R},
+         giveni={R},
+      }}%
+      {{hash=RJ}{%
+         family={Ros},
+         familyi={R\bibinitperiod},
+         given={J},
+         giveni={J},
       }}%
     }
-    \strng{namehash}{KHO1}
-    \strng{fullhash}{KHO1}
+    \list{publisher}{1}{%
+      {Elsevier}%
+    }
+    \strng{namehash}{GRRJ1}
+    \strng{fullhash}{GRRJ1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{sortinit}{K}
-    \field{sortinithash}{K}
-    \field{number}{119}
-    \field{pages}{605\bibrangedash 624}
-    \field{title}{Difference approximations for boundary and eigenvalue
-  problems for ordinary differential equations}
-    \field{volume}{26}
-    \field{journaltitle}{Mathematics of Computation}
-    \field{year}{1972}
+    \field{sortinit}{G}
+    \field{sortinithash}{G}
+    \field{number}{3}
+    \field{pages}{374\bibrangedash 389}
+    \field{title}{On the numerical integration of the Schr{\"o}dinger equation
+  in the finite-difference schemes}
+    \field{volume}{45}
+    \field{journaltitle}{Journal of Computational Physics}
+    \field{year}{1982}
   \endentry
 
   \entry{paine1981}{article}{}
@@ -113,6 +175,24 @@
     \field{volume}{26}
     \field{journaltitle}{Computing}
     \field{year}{1981}
+  \endentry
+
+  \entry{dongjiao2014}{article}{}
+    \name{author}{1}{}{%
+      {{hash=tDT}{%
+         family={\textit{,et al.}},
+         familyi={t\bibinitperiod},
+         given={Dongjiao\bibnamedelima Tang},
+         giveni={D\bibinitperiod\bibinitdelim T\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{tDT1}
+    \strng{fullhash}{tDT1}
+    \field{labelnamesource}{author}
+    \field{sortinit}{T}
+    \field{sortinithash}{T}
+    \field{journaltitle}{Master's thesis, National University of Singapore}
+    \field{year}{2014}
   \endentry
 \enddatalist
 \endinput

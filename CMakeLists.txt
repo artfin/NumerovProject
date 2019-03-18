@@ -19,7 +19,14 @@ find_package(GSL REQUIRED)
 # GMN := generalized matrix numerov
 file( GLOB LIB_SOURCES lib/*.cpp )
 file( GLOB LIB_HEADERS lib/*.h )
-add_library( GMN ${LIB_SOURCES} ${LIB_HEADERS} )
+add_library( GMN ${LIB_SOURCES} ${LIB_HEADERS} lib/main.cpp)
 install(TARGETS GMN
         ARCHIVE DESTINATION ${PROJECT_SOURCE_DIR}/lib
         LIBRARY DESTINATION ${PROJECT_SOURCE_DIR}/lib)
+
+#add_executable(gmn lib/main.cpp
+#                   lib/matrixreader.h
+#                   lib/matrixreader.cpp)
+
+#target_link_libraries(gmn GSL::gsl GSL::gslcblas)
+

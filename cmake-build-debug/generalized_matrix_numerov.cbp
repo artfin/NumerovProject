@@ -146,6 +146,9 @@
 		<Unit filename="/home/artfin/Desktop/repos/NumerovProject/lib/generalizedmatrixnumerov.h">
 			<Option target="GMN"/>
 		</Unit>
+		<Unit filename="/home/artfin/Desktop/repos/NumerovProject/lib/main.cpp">
+			<Option target="GMN"/>
+		</Unit>
 		<Unit filename="/home/artfin/Desktop/repos/NumerovProject/lib/matrixreader.cpp">
 			<Option target="GMN"/>
 		</Unit>

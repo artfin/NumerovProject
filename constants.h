@@ -21,4 +21,6 @@ namespace constants
     
     // atomic mass unit == m_e ( electron mass )
     const double AMU = 9.10938356E-31;
+    // atomic mass unit (carbon-12)
+    const double AMURED = 1.660539040E-27;
 }

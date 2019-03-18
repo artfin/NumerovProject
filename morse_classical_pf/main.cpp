@@ -36,6 +36,15 @@ double integrand_(hep::mc_point<double> const& x, const double Temperature)
 
 int main( int argc, char * argv[] )
 {
+    std::cout << std::fixed << std::setprecision(15);
+    std::cout << "MU: " << Morse::MU * constants::AMU / constants::AMURED << std::endl;
+
+    std::cout << "c1: " << Morse::De * std::exp(2.0 * Morse::a_ang * Morse::reang) << std::endl;
+    std::cout << "c2: " << -2.0*Morse::De * std::exp(Morse::a_ang * Morse::reang) << std::endl;
+
+    std::cout << "A1: " << -2.0 * Morse::a_ang << std::endl;
+    std::cout << "A2: " << -Morse::a_ang << std::endl;
+
     MPI_Init( &argc, &argv );
 
     int rank;
@@ -89,11 +98,13 @@ int main( int argc, char * argv[] )
         pfs.push_back( ans );
     }
 
+    /*
     std::ofstream ofs( "../classical_pf2.txt" );
     ofs << std::fixed << std::setprecision(12);
 
     for ( size_t k = 0; k < temps.size(); ++k )
         ofs << temps[k] << " " << pfs[k] << std::endl;
+    */
 
     return 0;
 }

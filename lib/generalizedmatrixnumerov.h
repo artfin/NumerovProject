@@ -10,7 +10,7 @@
 #include <Spectra/SymEigsSolver.h>
 
 #define DEBUG_SHOW_MATRIX_STRUCTURE
-//#undef DEBUG_SHOW_MATRIX_STRUCTURE
+#undef DEBUG_SHOW_MATRIX_STRUCTURE
 
 class GeneralizedMatrixNumerov
 {
@@ -22,6 +22,10 @@ public:
     void diagonalize( Eigen::VectorXd & eigvals, Eigen::MatrixXd & eigvecs );
     void diagonalize_arnoldi( int n, Eigen::VectorXd & eigvals );
     int get_N() const { return parameters->get_N(); }
+
+    Eigen::MatrixXd const& get_A() const { return A; }
+    Eigen::MatrixXd const& get_B() const { return B; }
+    Eigen::MatrixXd const& get_H() const { return H; }
 
 private:
     Parameters * parameters;

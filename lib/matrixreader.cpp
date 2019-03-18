@@ -1,13 +1,13 @@
 #include "matrixreader.h"
 
-MatrixReader::MatrixReader( std::string const & filename )
+MatrixReader::MatrixReader( std::string const & filename ) : filename(filename)
 {
     std::vector<std::string> content;
-    loadFormatFile( filename, content );
-    parseFormatFile( content );
+    loadFormatFile( );
+    parseContent( );
 }
 
-void MatrixReader::loadFormatFile( std::string const & filename, std::vector<std::string> & content )
+void MatrixReader::loadFormatFile( )
 {
     std::ifstream infile( filename );
     if ( !infile )
@@ -19,6 +19,37 @@ void MatrixReader::loadFormatFile( std::string const & filename, std::vector<std
         content.push_back( tmpString );
 
     infile.close();
+}
+
+std::pair<int, int> MatrixReader::parseTwoIntegers(const std::string &s, size_t line)
+{
+   size_t pos = s.find(' ');
+   std::string integer1 = s.substr(0, pos);
+   std::string integer2 = s.substr(pos + 1, s.size());
+
+   return std::make_pair( string_to_int(integer1, line),
+                          string_to_int(integer2, line));
+}
+
+
+inline bool MatrixReader::isTwoIntegers(const std::string & s)
+{
+    size_t pos = s.find(' ');
+    if ( pos == std::string::npos) {
+        return false;
+    }
+
+    std::string integer1 = s.substr(0, pos);
+    if ( !isInteger(integer1) ) {
+        return false;
+    }
+
+    std::string integer2 = s.substr(pos+1, s.size());
+    if ( !isInteger(integer2) ) {
+        return false;
+    }
+
+    return true;
 }
 
 inline bool MatrixReader::isInteger(const std::string & s)
@@ -39,7 +70,7 @@ inline bool MatrixReader::isInteger(const std::string & s)
    return (*p == 0) ;
 }
 
-void MatrixReader::parseFormatFile( std::vector<std::string> & content )
+void MatrixReader::parseContent( )
 {
     bool is_empty;
     std::string variable, value;
@@ -51,6 +82,12 @@ void MatrixReader::parseFormatFile( std::vector<std::string> & content )
         {
             if ( variable == "factor" ) factor = string_to_int(value, k );
             else if ( variable == "d_power" ) d_power = string_to_int(value, k);
+            else if ( isTwoIntegers(variable) ) {
+                //std::cout << "Two integers!" << std::endl;
+                std::pair<int, int> integers = parseTwoIntegers(variable, k);
+
+                extreme.insert( std::make_pair(integers, std::stoi(value)) );
+            }
             else if ( isInteger(variable) && isInteger(value) ) // если оба поля являются интами
                 mtxFmt.emplace_back( std::stoi(variable), std::stoi(value) );
             else
@@ -62,7 +99,7 @@ void MatrixReader::parseFormatFile( std::vector<std::string> & content )
     }
 }
 
-void MatrixReader::parseLine( std::string & line, bool & is_empty, std::string & variable, std::string & value, int lineNumber )
+void MatrixReader::parseLine( std::string & line, bool & is_empty, std::string & variable, std::string & value, size_t lineNumber )
 {
     // изначально считаем, что строка пустая
     is_empty = true;
@@ -87,6 +124,7 @@ void MatrixReader::parseLine( std::string & line, bool & is_empty, std::string &
 
         // смотрим на левую часть
         std::string lhs = line.substr(0, pos);
+        //std::cout << "lhs: " << lhs << std::endl;
 
         // локализуем название перемнной
         size_t variable_start = lhs.find_first_not_of(space_symbols);
@@ -124,32 +162,47 @@ int MatrixReader::string_to_int( std::string const & value, size_t line )
 
 void MatrixReader::fillMatrix(Eigen::MatrixXd & m, double d)
 {
-    int size = m.rows();
+    size_t size = m.rows();
     //std::cout << "(MatrixReader) factor: " << factor << "; d_power: " << d_power << std::endl;
 
-    for ( size_t k = 0; k < mtxFmt.size(); k++ )
+    for ( auto const& p : mtxFmt )
     {
-        int i = 0;
-        int j = mtxFmt[k].first;
-        double value = mtxFmt[k].second / factor * pow(d, d_power);
+        size_t i = 0;
+        size_t j = p.first;
+
+        double value = p.second / factor * std::pow(d, d_power);
 
         for ( ; j < size; i++, j++ )
             m(i, j) = value;
 
-        i = mtxFmt[k].first;
+        i = p.first;
         j = 0;
         for ( ; i < size; i++, j++ )
             m(i, j) = value;
     }
 
+    for ( auto const & p : extreme ) {
+        double value = p.second / factor * std::pow(d, d_power);
+
+        int index1 = p.first.first;
+        int index2 = p.first.second;
+
+        m(index1, index2) = value;
+        m(index2, index1) = value;
+
+        m(size-1-index1, size-1-index2) = value;
+        m(size-1-index2, size-1-index1) = value;
+    }
 }
 
-void MatrixReader::resetFile(const std::string &filename)
+void MatrixReader::resetFile(std::string const& filename)
 {
     // чистим форматный вектор
     mtxFmt.clear();
+    content.clear();
+    extreme.clear();
 
-    std::vector<std::string> content;
-    loadFormatFile( filename, content );
-    parseFormatFile( content );
+    this->filename = filename;
+    loadFormatFile();
+    parseContent();
 }

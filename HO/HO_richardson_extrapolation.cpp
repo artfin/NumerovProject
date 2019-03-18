@@ -96,6 +96,7 @@ int main()
     parameters.setPotential( harmonic::potential );
     double leftTurningPoint = -10.0;
     double rightTurningPoint = 10.0;
+    double L = rightTurningPoint - leftTurningPoint;
     int n = 40;
     parameters.setGridParameters( leftTurningPoint, rightTurningPoint, n );
 
@@ -113,13 +114,17 @@ int main()
     std::cout << " -----------------------------------------------------" << std::endl << std::endl;
 #endif
 
-    const int ORDER = 10;
+    const int ORDER = 4;
     std::string dir = getDirByOrder(ORDER);
+    //std::string dir = "../" + std::to_string(ORDER) + "order_central_difference/";
+    //std::string dir = "../" + std::to_string(ORDER) + "order_corrected/";
+    //std::string dir = "../pade_2_2/";
 
-    std::cout << " USING MATRIX NUMEROV METHOD OF THE ORDER = " << ORDER << std::endl;
+    //std::cout << " USING MATRIX NUMEROV METHOD OF THE ORDER = " << ORDER << std::endl;
 
     GeneralizedMatrixNumerov generalizedMatrixNumerov( &parameters, dir );
 
+    /*
     int N = 10; // number of eigenvalues to compute
     int niter = 3; // number of iterations to reduce the step
 
@@ -144,6 +149,50 @@ int main()
                      std::abs(exact - first_extrapolation[k]) << " \t " <<
                      std::abs(exact - second_extrapolation[k]) << std::endl;
     }
+    */
+
+    //std::string filename = "./pade_2_2_diff_k.txt";
+    //std::string filename = "./" + std::to_string(ORDER) + "order_numerov_diff_h.txt";
+    //std::string filename = "./" + std::to_string(ORDER) + "order_central_diff_h.txt";
+    //std::string filename = "./" + std::to_string(ORDER) + "order_corrected_diff_h.txt";
+    /*
+    std::ofstream ofs(filename);
+    ofs << std::fixed << std::setprecision(15);
+
+    for ( int k = 40; k < 400; k += 10 ) {
+        parameters.setGridParameters( leftTurningPoint, rightTurningPoint, k );
+        std::vector<Eigenvalue> eigs = computeEigenvalues( generalizedMatrixNumerov, 1 );
+        double diff = std::abs(eigs[0].get_value() - 0.5);
+        double h = L / k;
+
+        ofs << h << " " << diff << std::endl;
+    }
+     */
+
+    //std::string filename = "./plot_k/" + std::to_string(ORDER) + "order_diff_k3.txt";
+    //std::string filename = "./pade_1_1_diff_k.txt";
+    std::string filename = "./" + std::to_string(ORDER) + "order_central_difference_diff_k.txt";
+
+    std::ofstream ofs(filename);
+    ofs << std::fixed << std::setprecision(15);
+
+    parameters.setGridParameters( leftTurningPoint, rightTurningPoint, n );
+    std::vector<Eigenvalue> eigs = computeEigenvalues( generalizedMatrixNumerov, n - 1 );
+
+    /*
+    Eigen::MatrixXd const& A = generalizedMatrixNumerov.get_A();
+    std::cout << "A: " << std::endl << A << std::endl;
+
+    Eigen::MatrixXd const& B = generalizedMatrixNumerov.get_B();
+    std::cout << "B: " << std::endl << B << std::endl;
+    */
+
+    /*
+    for ( size_t k = 0; k < eigs.size(); ++k ) {
+        ofs << k+1 << " " << std::abs(eigs[k].get_value() - (k+0.5)) << std::endl;
+    }
+     */
+
 
     return 0;
 }

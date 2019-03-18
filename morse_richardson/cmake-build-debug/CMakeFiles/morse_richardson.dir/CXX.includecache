@@ -49,6 +49,8 @@ vector
 -
 stdexcept
 -
+map
+-
 
 /home/artfin/Desktop/repos/NumerovProject/lib/parameters.h
 iostream

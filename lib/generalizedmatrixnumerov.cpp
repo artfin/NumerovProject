@@ -53,8 +53,10 @@ void GeneralizedMatrixNumerov::fillMatrices()
 
     double x = 0.0;
     if ( parameters->ENERGY_BASED_GRID ) {
+        std::cout << " EMPLOYING ENERGY BASED GRID" << std::endl;
         x = parameters->get_leftTurningPoint() - 2.0 * parameters->get_lambda();
     } else if ( parameters->FIXED_GRID ) {
+        std::cout << " EMPLOYING FIXED GRID" << std::endl;
         x = parameters->get_leftTurningPoint() + d;
     }
 
