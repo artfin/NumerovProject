@@ -70,6 +70,71 @@
     \field{year}{1980}
   \endentry
 
+  \entry{chawla1980}{article}{}
+    \name{author}{2}{}{%
+      {{hash=CM}{%
+         family={Chawla},
+         familyi={C\bibinitperiod},
+         given={MM},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=KC}{%
+         family={Katti},
+         familyi={K\bibinitperiod},
+         given={CP},
+         giveni={C\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer}%
+    }
+    \strng{namehash}{CMKC1}
+    \strng{fullhash}{CMKC1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \field{number}{1}
+    \field{pages}{107\bibrangedash 109}
+    \field{title}{On Noumerov's method for computing eigenvalues}
+    \field{volume}{20}
+    \field{journaltitle}{BIT Numerical Mathematics}
+    \field{year}{1980}
+  \endentry
+
+  \entry{fack1987}{article}{}
+    \name{author}{2}{}{%
+      {{hash=FV}{%
+         family={Fack},
+         familyi={F\bibinitperiod},
+         given={Veerle},
+         giveni={V\bibinitperiod},
+      }}%
+      {{hash=BGV}{%
+         family={Berghe},
+         familyi={B\bibinitperiod},
+         given={G\bibnamedelima Vanden},
+         giveni={G\bibinitperiod\bibinitdelim V\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {IOP Publishing}%
+    }
+    \strng{namehash}{FVBGV1}
+    \strng{fullhash}{FVBGV1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{F}
+    \field{sortinithash}{F}
+    \field{number}{13}
+    \field{pages}{4153}
+    \field{title}{(Extended) Numerov method for computing eigenvalues of
+  specific Schrodinger equations}
+    \field{volume}{20}
+    \field{journaltitle}{Journal of Physics A: Mathematical and General}
+    \field{year}{1987}
+  \endentry
+
   \entry{goorvitch1992}{article}{}
     \name{author}{2}{}{%
       {{hash=GD}{%

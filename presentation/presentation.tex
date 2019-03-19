@@ -211,7 +211,7 @@
         \begin{gather}
             \vert \lambda_k - \lambda_k^{(N)} \vert = k^2 - \frac{4}{h^2} \sin^2 \lb \frac{k h}{2} \rb = -\frac{1}{12} h^2 k^4 + \frac{1}{360} h^4 k^6 + O(h^6 k^8)
         \end{gather}
-        Если потенциальная энергия $V \in C^{(4)}[a, b]$, то та же разница для матричного метода Нумерова ведет себя как $\vert \lambda_k - \lambda_k^{(N)} \vert = O(h^4)$ \footfullcite{andrew1986}.
+        Если потенциальная энергия $V \in C^{(4)}[a, b]$, то та же разница для матричного метода Нумерова ведет себя как $\vert \lambda_k - \lambda_k^{(N)} \vert = O(h^4)$ \footfullcite{andrew1986, chawla1980}.
     \end{block}
 \end{frame}
 
@@ -473,8 +473,8 @@ $25$ & $1.605723403591$ & $1.644924587023$ & $1.644934069153$ & $\color{red}{1.6
     \end{block}
 \end{frame}
 
-\begin{frame}{Диагональные элементы Паде таблицы \footfullcite{burke1980}}
-    \begin{block}{}
+\begin{frame}{Диагональные элементы Паде таблицы \footfullcite{burke1980, fack1987}}
+    \begin{block}{\enquotes{Расширенные} методы Нумерова}
         \begin{gather}
             h^2 \hD^2 [1/1] = \dfrac{\hat{\delta}^2}{1 + \frac{1}{12} \hat{\delta}^2} + O(h^6) \\
             h^2 \hD^2 [2/2] = \dfrac{\frac{31}{252} \hat{\delta}^4 + \hat{\delta}^2}{1 + \frac{13}{63} \hat{\delta}^2 + \frac{23}{3780} \hat{\delta}^4} + O(h^{10}) \\

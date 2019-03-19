@@ -12,63 +12,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c4976111-c87c-46db-bbe2-51f44e66ebda" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeFiles/HO_richardson_extrapolation.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeFiles/HO_richardson_extrapolation.dir/CXX.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HO_richardson_extrapolation" beforeDir="false" afterPath="$PROJECT_DIR$/HO_richardson_extrapolation" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HO_richardson_extrapolation.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/HO_richardson_extrapolation.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cmake-build-debug/CMakeFiles/GMN.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/../cmake-build-debug/CMakeFiles/GMN.dir/CXX.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cmake-build-debug/CMakeFiles/GMN.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../cmake-build-debug/CMakeFiles/GMN.dir/DependInfo.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cmake-build-debug/CMakeFiles/GMN.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../cmake-build-debug/CMakeFiles/GMN.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cmake-build-debug/CMakeFiles/GMN.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../cmake-build-debug/CMakeFiles/GMN.dir/cmake_clean.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cmake-build-debug/CMakeFiles/GMN.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/../cmake-build-debug/CMakeFiles/GMN.dir/depend.internal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cmake-build-debug/CMakeFiles/GMN.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/../cmake-build-debug/CMakeFiles/GMN.dir/depend.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cmake-build-debug/CMakeFiles/GMN.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../cmake-build-debug/CMakeFiles/GMN.dir/link.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cmake-build-debug/CMakeFiles/GMN.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/../cmake-build-debug/CMakeFiles/GMN.dir/progress.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cmake-build-debug/CMakeFiles/HO_richardson_extrapolation.dir/CXX.includecache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cmake-build-debug/CMakeFiles/HO_richardson_extrapolation.dir/DependInfo.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cmake-build-debug/CMakeFiles/HO_richardson_extrapolation.dir/build.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cmake-build-debug/CMakeFiles/HO_richardson_extrapolation.dir/cmake_clean.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cmake-build-debug/CMakeFiles/HO_richardson_extrapolation.dir/depend.internal" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cmake-build-debug/CMakeFiles/HO_richardson_extrapolation.dir/depend.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cmake-build-debug/CMakeFiles/HO_richardson_extrapolation.dir/flags.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cmake-build-debug/CMakeFiles/HO_richardson_extrapolation.dir/link.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cmake-build-debug/CMakeFiles/HO_richardson_extrapolation.dir/progress.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/../cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/../cmake-build-debug/CMakeFiles/progress.marks" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/../cmake-build-debug/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cmake-build-debug/generalized_matrix_numerov.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/../cmake-build-debug/generalized_matrix_numerov.cbp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cmake-build-debug/install_manifest.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cmake-build-debug/matrix_numerov.cbp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../constants.h" beforeDir="false" afterPath="$PROJECT_DIR$/../constants.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lib/generalizedmatrixnumerov.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/generalizedmatrixnumerov.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lib/generalizedmatrixnumerov.h" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/generalizedmatrixnumerov.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lib/libGMN.a" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/libGMN.a" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lib/matrixreader.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/matrixreader.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lib/matrixreader.h" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/matrixreader.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../morse_classical_pf/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../morse_classical_pf/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../morse_classical_pf/cmake-build-debug/CMakeFiles/morse_classical_pf.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/../morse_classical_pf/cmake-build-debug/CMakeFiles/morse_classical_pf.dir/CXX.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../morse_classical_pf/cmake-build-debug/morse_classical_pf" beforeDir="false" afterPath="$PROJECT_DIR$/../morse_classical_pf/cmake-build-debug/morse_classical_pf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../morse_classical_pf/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../morse_classical_pf/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../morse_classical_pf/morse.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../morse_classical_pf/morse.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../morse_classical_pf/morse.h" beforeDir="false" afterPath="$PROJECT_DIR$/../morse_classical_pf/morse.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../morse_pf_results/.ipynb_checkpoints/Ratio of partition functions-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../morse_pf_results/.ipynb_checkpoints/Ratio of partition functions-checkpoint.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../morse_pf_results/Ratio of partition functions.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../morse_pf_results/Ratio of partition functions.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../morse_richardson/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../morse_richardson/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../morse_richardson/cmake-build-debug/CMakeFiles/morse_richardson.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/../morse_richardson/cmake-build-debug/CMakeFiles/morse_richardson.dir/CXX.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../morse_richardson/cmake-build-debug/morse_richardson" beforeDir="false" afterPath="$PROJECT_DIR$/../morse_richardson/cmake-build-debug/morse_richardson" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../morse_richardson/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../morse_richardson/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../presentation/biblio.bib" beforeDir="false" afterPath="$PROJECT_DIR$/../presentation/biblio.bib" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../presentation/presentation.bbl" beforeDir="false" afterPath="$PROJECT_DIR$/../presentation/presentation.bbl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../presentation/presentation.blg" beforeDir="false" afterPath="$PROJECT_DIR$/../presentation/presentation.blg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../presentation/presentation.nav" beforeDir="false" afterPath="$PROJECT_DIR$/../presentation/presentation.nav" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../presentation/presentation.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/../presentation/presentation.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../presentation/presentation.tex" beforeDir="false" afterPath="$PROJECT_DIR$/../presentation/presentation.tex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../threepoint/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../threepoint/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../threepoint/cmake-build-debug/CMakeFiles/threepoint.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/../threepoint/cmake-build-debug/CMakeFiles/threepoint.dir/CXX.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../threepoint/cmake-build-debug/threepoint" beforeDir="false" afterPath="$PROJECT_DIR$/../threepoint/cmake-build-debug/threepoint" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../threepoint/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../threepoint/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pade_etc.mw" beforeDir="false" afterPath="$PROJECT_DIR$/../pade_etc.mw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pade_etc_MAS.bak" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/CMakeFiles/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -132,7 +78,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/CMakeLists.txt" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../CMakeLists.txt" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
@@ -170,18 +116,18 @@
       <workItem from="1552830075305" duration="4927000" />
       <workItem from="1552894926183" duration="40000" />
       <workItem from="1552907232069" duration="6457000" />
-      <workItem from="1552937668883" duration="604000" />
+      <workItem from="1552937668883" duration="1193000" />
+      <workItem from="1552978646636" duration="16000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13293000" />
+    <option name="totallyTimeSpent" value="13898000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1213" height="999" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2673522" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27249357" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
